@@ -67,9 +67,9 @@ package HadamardPackage is
 
 	port
 	(
-		clk,load, clear:	in std_logic;
-		d:						in std_logic_vector(num-1 downto 0);
-		q:						out std_logic_vector(num-1 downto 0)
+		clk,load, clear:	in  std_logic;
+		d:						in  std_logic_vector(num - 1 downto 0);
+		q:						out std_logic_vector(num - 1 downto 0)
 	);
 	end component;
 
@@ -79,9 +79,9 @@ package HadamardPackage is
 	generic( num: integer := 8 );
 	port 
 	(
-		a,b:		in std_logic_vector(num-1 downto 0);
-		sel:		in std_logic;
-		s:			out std_logic_vector(num-1 downto 0)
+		a,b:		in  std_logic_vector(num - 1 downto 0);
+		sel:		in  std_logic;
+		s:			out std_logic_vector(num - 1 downto 0)
 	);
 	end component;
 	
@@ -89,23 +89,17 @@ package HadamardPackage is
 	
 	component PingPongBuffer is
 	generic(
-		num:		integer := 32;
-		addrNum:	integer := 4
+		num:		integer := 8;
+		addrNum:	integer := 2
 	);
 	port
 	(
-		adressRead1:	in std_logic_vector(addrNum - 1 downto 0);
-		adressRead2:	in std_logic_vector(addrNum - 1 downto 0);
+		adressWrite:	 		in std_logic_vector(addrNum - 1 downto 0);
+		dataWrite:		 		in std_logic_vector(num - 1 downto 0);
 	
-		dataRead1:		out std_logic_vector(num-1 downto 0);
-		dataRead2:		out std_logic_vector(num-1 downto 0);
+		w0, w1, w2, w3: 		out std_logic_vector(num - 1 downto 0);
 	
-		adressWrite:	in std_logic_vector(addrNum - 1 downto 0);
-		dataWrite:		in std_logic_vector(num-1 downto 0);
-	
-		clk:				in std_logic;
-	
-		writeRegister:	in std_logic
+		clk, writeRegister:	in std_logic
 	);
 	end component;
 
