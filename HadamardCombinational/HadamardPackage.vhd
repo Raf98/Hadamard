@@ -40,7 +40,7 @@ package HadamardPackage is
 		-------------------------Mux------------------------
 	
 	component ShiftRight is
-	generic(num:        integer := 8);
+	generic(num:        integer := 10);
 	port(
 		a: 	 in std_logic_vector(num -1 downto 0);
 		s: 	 out std_logic_vector(num - 1 downto 0)
