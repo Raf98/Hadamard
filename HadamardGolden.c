@@ -5,14 +5,31 @@
 
 #define SAMPLES 100
 
+void intToBinary(int n, char* str)
+{
+    printf("%d\n", n);
+    short i, bin[10];
+
+    for (i = 0; i < 10; i++){
+        bin[i] = ((unsigned int)n >> i) & 1;
+    }
+
+    char binDigit[2];
+    for(short j = 0, i = 9; j < 10; j++, i--){
+        str[j] = (char) bin[i] + 48;
+    }
+}
+
 void generateEntry(FILE* filePointer, int matrix[SAMPLES][4], int i, int j, int maxBit) {
-    char str[33];
-    itoa(matrix[i][j], str, 2);
+    char str[11];
+    //itoa(matrix[i][j], str, 2);
+    printf("ENTERING FUNC...\n");
+    intToBinary(matrix[i][j], str);
     char newStr[10];
     strcpy(newStr, "");
 
     printf("STR: %s\n", str);
-    printf("SIZE: %d\n", (strlen(str)));
+    //printf("SIZE: %d\n", (strlen(str)));
     if(strlen(str) == maxBit) {
         printf("EQUAL\n");
         strcat(newStr, str);
@@ -50,7 +67,8 @@ void generateFile(char* fileName, int matrix[SAMPLES][4], int maxBit) {
 
 void generateEntryDec(FILE* filePointer, int matrix[SAMPLES][4], int i, int j) {
     char str[10];
-    itoa(matrix[i][j], str, 10);
+    sprintf(str, "%d", matrix[i][j]);
+    //itoa(matrix[i][j], str, 10);
     strcat(str, " ");
     fputs(str, filePointer);
 }
@@ -79,10 +97,10 @@ int main(int argc, char const *argv[])
 
     for(int i = 0; i < SAMPLES; i++) {
         //printf("%d\n", i);
-        w[i][0] = rand() % 255;
-        w[i][1] = rand() % 255;
-        w[i][2] = rand() % 255;
-        w[i][3] = rand() % 255;
+        w[i][0] = rand() % 128 - (rand() % 128);
+        w[i][1] = rand() % 128 - (rand() % 128);
+        w[i][2] = rand() % 128 - (rand() % 128);
+        w[i][3] = rand() % 128 - (rand() % 128);
 
         a[0] = w[i][0] + w[i][2];
         a[1] = w[i][1] + w[i][3];
