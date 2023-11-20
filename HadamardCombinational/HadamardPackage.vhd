@@ -18,11 +18,11 @@ package HadamardPackage is
 	generic(num:        integer := 8);
 	port
 	(
-		c0:    in 	std_logic;
-		a,b:   in 	std_logic_vector(num - 1 downto 0);
-		op:    in 	std_logic;
-		s:     out 	std_logic_vector(num - 1 downto 0);
-		cLast: out 	std_logic
+		c0:    in std_logic;
+		a,b:   in std_logic_vector(num - 1 downto 0);
+		op:    in std_logic;
+		s:     out std_logic_vector(num - 1 downto 0);
+		cLast: out std_logic
 	);
 	end component;
 	
@@ -31,13 +31,13 @@ package HadamardPackage is
 	component Mux is
 	port
 	(
-		a,b:		in  std_logic;
-		sel:		in  std_logic;
+		a,b:		in std_logic;
+		sel:		in std_logic;
 		s:			out std_logic
 	);
 	end component;
 	
-		-------------------------Mux------------------------
+		-------------------------Shift Right------------------------
 	
 	component ShiftRight is
 	generic(num:        integer := 10);
@@ -53,8 +53,9 @@ package HadamardPackage is
 	component Register1Bit is 	
 	port
 	(
-		clk,load,d:	in std_logic;
-		q:				out std_logic
+		clk, load, clear: in std_logic;
+		d:						in std_logic;
+		q:						out std_logic
 	);
 	end component;
 	
@@ -66,9 +67,9 @@ package HadamardPackage is
 
 	port
 	(
-		clk,load:	in 	std_logic;
-		d:				in 	std_logic_vector(num-1 downto 0);
-		q:				out 	std_logic_vector(num-1 downto 0)
+		clk,load, clear:	in std_logic;
+		d:						in std_logic_vector(num-1 downto 0);
+		q:						out std_logic_vector(num-1 downto 0)
 	);
 	end component;
 
@@ -80,9 +81,9 @@ package HadamardPackage is
 	generic( num: integer := 8 );
 	port 
 	(
-		a,b:		in 	std_logic_vector(num-1 downto 0);
-		sel:		in 	std_logic;
-		s:			out 	std_logic_vector(num-1 downto 0)
+		a,b:		in std_logic_vector(num-1 downto 0);
+		sel:		in std_logic;
+		s:			out std_logic_vector(num-1 downto 0)
 	);
 	end component;
 

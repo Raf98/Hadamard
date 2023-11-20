@@ -5,7 +5,7 @@ library work;
 use work.HadamardPackage.all;
 
 entity RippleCarry is
-generic(num:        integer := 32);
+generic(num:        integer := 8);
 port
 (
     c0:    	in std_logic;
@@ -20,17 +20,21 @@ architecture structure of RippleCarry is
 
     signal c:    std_logic_vector(num downto 0);
     signal bOp:  std_logic_vector(num - 1 downto 0);
+	 signal x:	  std_logic_vector(num - 1 downto 0);
     
     begin
-    
+		  c(0)<= op;
         generateAdders:        
             for i in 0 to num-1 generate
 						  bOp(i) <= (b(i) xor op);
                     FA:FullAdder  
-                    port map(c(i), a(i), bOp(i), s(i), c(i+1));
+                    port map(c(i), a(i), bOp(i), x(i), c(i+1));
+						  s(i) <= x(i);
         end generate generateAdders;
-        
-        c(0)<= c0;
-        cLast<=c(num);
+		  
+        with op select
+		  cLast <= 	c(num) or (x(num - 1) and (a(num - 1) or b(num - 1))) when '0',
+						c(num) or x(num - 1) when others;
+		  
     
 end structure;
