@@ -22,7 +22,6 @@ architecture structure of RippleCarry is
     signal bOp:  std_logic_vector(num - 1 downto 0);
     
     begin
-    
 		  c(0)<= op;
         generateAdders:        
             for i in 0 to num-1 generate
