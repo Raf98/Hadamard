@@ -37,25 +37,30 @@ ENTITY HadamardCombinational_vhd_tst IS
 END HadamardCombinational_vhd_tst;
 ARCHITECTURE HadamardCombinational_arch OF HadamardCombinational_vhd_tst IS
 -- constants                                                 
--- signals                                                   
-SIGNAL s0 : STD_LOGIC_VECTOR(9 DOWNTO 0);
-SIGNAL s1 : STD_LOGIC_VECTOR(9 DOWNTO 0);
-SIGNAL s2 : STD_LOGIC_VECTOR(9 DOWNTO 0);
-SIGNAL s3 : STD_LOGIC_VECTOR(9 DOWNTO 0);
+-- signals 
+SIGNAL clk :  std_logic := '0';
+SIGNAL reset :  std_logic := '0';
+                                                  
 SIGNAL w0 : STD_LOGIC_VECTOR(7 DOWNTO 0);
 SIGNAL w1 : STD_LOGIC_VECTOR(7 DOWNTO 0);
 SIGNAL w2 : STD_LOGIC_VECTOR(7 DOWNTO 0);
 SIGNAL w3 : STD_LOGIC_VECTOR(7 DOWNTO 0);
+
+SIGNAL s0 : STD_LOGIC_VECTOR(8 DOWNTO 0);
+SIGNAL s1 : STD_LOGIC_VECTOR(8 DOWNTO 0);
+SIGNAL s2 : STD_LOGIC_VECTOR(8 DOWNTO 0);
+SIGNAL s3 : STD_LOGIC_VECTOR(8 DOWNTO 0);
 COMPONENT HadamardCombinational
 	PORT (
-	s0 : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0);
-	s1 : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0);
-	s2 : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0);
-	s3 : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0);
 	w0 : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 	w1 : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 	w2 : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-	w3 : IN STD_LOGIC_VECTOR(7 DOWNTO 0)
+	w3 : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+	
+	s0 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
+	s1 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
+	s2 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
+	s3 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0)
 	);
 END COMPONENT;
 
@@ -88,8 +93,6 @@ function stdvec_to_str(inp: std_logic_vector) return string is
 	
 	
 	file input, output: text;
-	SIGNAL clk :  std_logic := '0';
-	SIGNAL reset :  std_logic := '0';
 
 
 BEGIN
@@ -140,10 +143,11 @@ stimulus_in: process
 	variable str_out3: string(10 downto 2);
 	variable outline: line;	
 		--
-	variable num0: string(36 downto 29);
-	variable num1: string(27 downto 20);
-	variable num2: string(18 downto 11);
-	variable num3: string(9 downto 2);
+	variable num0: string(8 downto 1);
+	variable num1: string(8 downto 1);
+	variable num2: string(8 downto 1);
+	variable num3: string(8 downto 1);
+	variable blank: string(2 downto 1);
     begin
     
 		FILE_OPEN(input, "input.txt", READ_MODE);
@@ -157,12 +161,15 @@ stimulus_in: process
 			readline(input, inline);
 			read(inline, num0);
 			w0 <= str_to_stdvec(num0);
-			read(inline, num0);
-			w1 <= str_to_stdvec(num0);
-			read(inline, num0);
-			w2 <= str_to_stdvec(num0);
-			read(inline, num0);
-			w3 <= str_to_stdvec(num0);
+			read(inline, blank(1)); --le o espaco vazio entre os valores de cada linha de entrada
+			read(inline, num1);
+			w1 <= str_to_stdvec(num1);
+			read(inline, blank(1));
+			read(inline, num2);
+			w2 <= str_to_stdvec(num2);
+			read(inline, blank(1));
+			read(inline, num3);
+			w3 <= str_to_stdvec(num3);
 			
 			
 			wait until(clk'event and clk = '1');
@@ -175,19 +182,19 @@ stimulus_in: process
 			out0 := s0;
 			str_out0 := stdvec_to_str(out0);
 			write(outline, str_out0);
-			--write(outline, " ");
+			write(outline, blank(1));
 			out1 := s1;
 			str_out1 := stdvec_to_str(out1);
 			write(outline, str_out1);
-			--write(outline, " ");
+			write(outline, blank(1));
 			out2 := s2;
 			str_out2 := stdvec_to_str(out2);
 			write(outline, str_out2);
-			--write(outline, " ");
+			write(outline, blank(1));
 			out3 := s3;
 			str_out3 := stdvec_to_str(out3);
 			write(outline, str_out3);
-			--write(outline, " ");
+			write(outline, blank(1));
 			writeline(output, outline);
 		end loop;		
 		
