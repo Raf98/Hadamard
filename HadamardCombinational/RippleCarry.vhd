@@ -20,6 +20,8 @@ architecture structure of RippleCarry is
 
     signal c:    std_logic_vector(num downto 0);
     signal bOp:  std_logic_vector(num - 1 downto 0);
+	 signal x:	  std_logic_vector(num - 1 downto 0);
+	 signal over: std_logic; 
     
     begin
 		  c(0)<= op;
@@ -27,8 +29,15 @@ architecture structure of RippleCarry is
             for i in 0 to num-1 generate
 						  bOp(i) <= (b(i) xor op);
                     FA:FullAdder  
-                    port map(c(i), a(i), bOp(i), s(i), c(i+1));
+                    port map(c(i), a(i), bOp(i), x(i), c(i+1));
+						  s(i) <= x(i);
         end generate generateAdders;
-        cLast<=c(num);
+		  
+		  over <= (c(num) xor c(num - 1)) or x(num - 1);
+		  
+        with op select
+		  cLast <= 	over and (a(num - 1) or b(num - 1))  when '0',
+						over and not(not a(num - 1) and b(num - 1)) when others; 
+		  
     
 end structure;

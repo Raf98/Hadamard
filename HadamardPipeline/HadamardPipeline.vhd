@@ -42,19 +42,19 @@ architecture structure of HadamardPipeline is
 	 
     Adder0: RippleCarry  
     port map('0', w0, w2, '0', a0(num - 1 downto 0), carry(1));
-	 a0(num) <= carry(1) or (a0(num - 1) and (w0(num - 1) or w2(num - 1)));
+	 a0(num) <= carry(1);
 
     Adder1: RippleCarry  
     port map('0', w1, w3, '0', a1(num - 1 downto 0), carry(2));
-	 a1(num) <= carry(2) or (a1(num - 1) and (w1(num - 1) or w3(num - 1)));
+	 a1(num) <= carry(2);
 
     Sub0: RippleCarry  
     port map('0', w0, w2, '1', a2(num - 1 downto 0), carry(3));
-	 a2(num) <= carry(3) or a2(num - 1);
+	 a2(num) <= carry(3);
 
     Sub1: RippleCarry  
     port map('0', w1, w3, '1', a3(num - 1 downto 0), carry(4));
-	 a3(num) <= carry(4) or a3(num - 1);
+	 a3(num) <= carry(4);
 	 
 	 x0 <= a0;
 	 x1 <= a1;
@@ -82,7 +82,7 @@ architecture structure of HadamardPipeline is
 	 Sub2: RippleCarry
 	 generic map(num => 9)
     port map('0', b0, b1, '1', c1(num downto 0), carry(6));
-	 c1(num + 1) <= carry(6) or c1(num);
+	 c1(num + 1) <= carry(6);
 
     Adder3: RippleCarry
 	 generic map(num => 9)
@@ -92,7 +92,7 @@ architecture structure of HadamardPipeline is
     Sub3: RippleCarry
 	 generic map(num => 9)
     port map('0', b2, b3, '1', c3(num downto 0), carry(8));
-	 c3(num + 1) <= carry(8) or c3(num);
+	 c3(num + 1) <= carry(8);
 	 
 	 y0 <= c0;
 	 y1 <= c1;

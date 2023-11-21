@@ -20,6 +20,7 @@ proc simTimestamp {} {
 after 2500 simTimestamp
 run -all
 quit -f
+
 </modelsim_script>
 <modelsim_script_timing>onerror {exit -code 1}
 vlib work
@@ -38,6 +39,7 @@ proc simTimestamp {} {
 after 2500 simTimestamp
 run -all
 quit -f
+
 </modelsim_script_timing>
 <hdl_lang>vhdl</hdl_lang>
 </simulation_settings>*/
@@ -3339,7 +3341,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "w1";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Signed;
 	TREE_INDEX = 12;
 	TREE_LEVEL = 0;
 	CHILDREN = 13, 14, 15, 16, 17, 18, 19, 20;
@@ -3349,7 +3351,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "w1[7]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Signed;
 	TREE_INDEX = 13;
 	TREE_LEVEL = 1;
 	PARENT = 12;
@@ -3359,7 +3361,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "w1[6]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Signed;
 	TREE_INDEX = 14;
 	TREE_LEVEL = 1;
 	PARENT = 12;
@@ -3369,7 +3371,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "w1[5]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Signed;
 	TREE_INDEX = 15;
 	TREE_LEVEL = 1;
 	PARENT = 12;
@@ -3379,7 +3381,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "w1[4]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Signed;
 	TREE_INDEX = 16;
 	TREE_LEVEL = 1;
 	PARENT = 12;
@@ -3389,7 +3391,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "w1[3]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Signed;
 	TREE_INDEX = 17;
 	TREE_LEVEL = 1;
 	PARENT = 12;
@@ -3399,7 +3401,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "w1[2]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Signed;
 	TREE_INDEX = 18;
 	TREE_LEVEL = 1;
 	PARENT = 12;
@@ -3409,7 +3411,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "w1[1]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Signed;
 	TREE_INDEX = 19;
 	TREE_LEVEL = 1;
 	PARENT = 12;
@@ -3419,7 +3421,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "w1[0]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Signed;
 	TREE_INDEX = 20;
 	TREE_LEVEL = 1;
 	PARENT = 12;
@@ -3519,7 +3521,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "w3";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Signed;
 	TREE_INDEX = 30;
 	TREE_LEVEL = 0;
 	CHILDREN = 31, 32, 33, 34, 35, 36, 37, 38;
@@ -3529,7 +3531,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "w3[7]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Signed;
 	TREE_INDEX = 31;
 	TREE_LEVEL = 1;
 	PARENT = 30;
@@ -3539,7 +3541,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "w3[6]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Signed;
 	TREE_INDEX = 32;
 	TREE_LEVEL = 1;
 	PARENT = 30;
@@ -3549,7 +3551,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "w3[5]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Signed;
 	TREE_INDEX = 33;
 	TREE_LEVEL = 1;
 	PARENT = 30;
@@ -3559,7 +3561,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "w3[4]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Signed;
 	TREE_INDEX = 34;
 	TREE_LEVEL = 1;
 	PARENT = 30;
@@ -3569,7 +3571,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "w3[3]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Signed;
 	TREE_INDEX = 35;
 	TREE_LEVEL = 1;
 	PARENT = 30;
@@ -3579,7 +3581,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "w3[2]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Signed;
 	TREE_INDEX = 36;
 	TREE_LEVEL = 1;
 	PARENT = 30;
@@ -3589,7 +3591,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "w3[1]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Signed;
 	TREE_INDEX = 37;
 	TREE_LEVEL = 1;
 	PARENT = 30;
@@ -3599,7 +3601,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "w3[0]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Signed;
 	TREE_INDEX = 38;
 	TREE_LEVEL = 1;
 	PARENT = 30;

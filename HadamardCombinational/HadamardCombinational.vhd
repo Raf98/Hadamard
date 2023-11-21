@@ -62,15 +62,15 @@ architecture structure of HadamardCombinational is
 	 generic map(num => 9)
     port map('0', a0, a1, '0', b0(num downto 0), carry(5));
 	 b0(num + 1) <= carry(5);
+	 
+	 Sub2: RippleCarry
+	 generic map(num => 9)
+    port map('0', a0, a1, '1', b1(num downto 0), carry(6));
+	 b1(num + 1) <= carry(6);
 
     Adder3: RippleCarry
 	 generic map(num => 9)
-    port map('0', a2, a3, '0', b1(num downto 0), carry(6));
-	 b1(num + 1) <= carry(6);
-
-    Sub2: RippleCarry
-	 generic map(num => 9)
-    port map('0', a0, a1, '1', b2(num downto 0), carry(7));
+    port map('0', a2, a3, '0', b2(num downto 0), carry(7));
 	 b2(num + 1) <= carry(7);
 
     Sub3: RippleCarry
