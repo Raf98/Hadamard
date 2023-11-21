@@ -33,11 +33,23 @@ architecture structure of RippleCarry is
 						  s(i) <= x(i);
         end generate generateAdders;
 		  
-		  over <= (c(num) xor c(num - 1)) or x(num - 1);
+		  --Faz checagem geral de overflow valido. O valor do ultimo bit da saida eh considerado pois pode indicar um valor negativo
+		  --a ser propagado para outro sinal de n+1 bits, ou seja, garante a integridade do sinal em um sistema de complemento de 2. 
+			
+		  over <= (c(num) xor c(num - 1)) or x(num - 1);	
+		  
+		  
+		  --Quando op = 0, i.e., é feita uma soma, considera o ultimo carry out como 1 apenas quando ao menos um dos MSBs de entrada eh 1,
+		  --ou seja, quando ao menos uma das entradas eh negativa. Assim, no caso de um overflow positivo, (por ex, 127 + 1), o ultimo
+		  --carry out sera zerado, indicando que eh um valor positivo.
+		  
+		  --Quando op = 1, uma subtracao, desconsidera o ultimo carry out como 1 apenas para o caso em que a primeira entrada é positiva
+		  --e a segunda negativa pois, para esse caso, pode ocorrer um overflow positivo na saida, o qual sera erroneamente considerado
+		  --como negativo, caso essa condicao nao seja aplicada.
 		  
         with op select
-		  cLast <= 	over and (a(num - 1) or b(num - 1))  when '0',
-						over when others;
+		  cLast <= 	over and (a(num - 1) or b(num - 1))  when '0',				 
+						over and not(not a(num - 1) and b(num - 1)) when others; 
 		  
     
 end structure;
