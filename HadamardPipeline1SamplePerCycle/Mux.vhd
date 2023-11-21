@@ -15,8 +15,9 @@ architecture structure of Mux is
 
 begin
 
-		with sel select
-		s <= 	a when '0',
-				b when others;
+		--with sel select
+		--s <= 	a when '0',
+		--		b when others;
+		s <= (not sel and a) or (sel and b);
 
 end structure;

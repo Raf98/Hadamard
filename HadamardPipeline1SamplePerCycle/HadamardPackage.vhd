@@ -8,7 +8,7 @@ package HadamardPackage is
 	 component FullAdder IS 
     PORT 
     (
-        cin, a, b:     IN STD_LOGIC;
+        cin, a, b:     IN  STD_LOGIC;
         s, cout:       OUT STD_LOGIC
     );
     END component;
@@ -31,19 +31,19 @@ package HadamardPackage is
 	component Mux is
 	port
 	(
-		a,b:		in std_logic;
-		sel:		in std_logic;
+		a,b:		in  std_logic;
+		sel:		in  std_logic;
 		s:			out std_logic
 	);
 	end component;
 	
-		-------------------------Mux------------------------
+		-------------------------Shift Right------------------------
 	
 	component ShiftRight is
-	generic(num:        integer := 8);
+	generic(num:        integer := 10);
 	port(
-		a: 	 in std_logic_vector(num -1 downto 0);
-		s: 	 out std_logic_vector(num - 1 downto 0)
+		a: 	 in 	std_logic_vector(num - 1 downto 0);
+		s: 	 out 	std_logic_vector(num - 1 downto 0)
 	);
 	end component;
 
@@ -53,8 +53,8 @@ package HadamardPackage is
 	component Register1Bit is 	
 	port
 	(
-		clk, load, clear: in std_logic;
-		d:						in std_logic;
+		clk, load, clear: in  std_logic;
+		d:						in  std_logic;
 		q:						out std_logic
 	);
 	end component;
@@ -63,29 +63,17 @@ package HadamardPackage is
 	
 	
 	component RegisterNBits is 
-	generic(num:		integer := 8);
+	generic(num:		integer := 9);
 
 	port
 	(
 		clk,load, clear:	in  std_logic;
-		d:						in  std_logic_vector(num - 1 downto 0);
-		q:						out std_logic_vector(num - 1 downto 0)
-	);
-	end component;
-
-	-----------------------Mux de N bits----------------------------------
-		
-	component MuxMulti is
-	generic( num: integer := 8 );
-	port 
-	(
-		a,b:		in  std_logic_vector(num - 1 downto 0);
-		sel:		in  std_logic;
-		s:			out std_logic_vector(num - 1 downto 0)
+		d:						in  std_logic_vector(num-1 downto 0);
+		q:						out std_logic_vector(num-1 downto 0)
 	);
 	end component;
 	
-	-----------------------Buffer Ping-Pong----------------------------------
+	--------------------------Ping-Pong Buffer-----------------------
 	
 	component PingPongBuffer is
 	generic(
@@ -93,13 +81,27 @@ package HadamardPackage is
 		addrNum:	integer := 2
 	);
 	port
-	(
-		adressWrite:	 		in std_logic_vector(addrNum - 1 downto 0);
-		dataWrite:		 		in std_logic_vector(num - 1 downto 0);
+	(	
+		adressWrite:	 		in  std_logic_vector(addrNum - 1 downto 0);
+		dataWrite:		 		in  std_logic_vector(num - 1     downto 0);
 	
-		w0, w1, w2, w3: 		out std_logic_vector(num - 1 downto 0);
+		w0, w1, w2, w3: 		out std_logic_vector(num - 1     downto 0);
 	
 		clk, writeRegister:	in std_logic
+	);
+	end component;
+
+	
+	-----------------------Mux de N bits----------------------------------
+	
+	
+	component MuxMulti is
+	generic( num: integer := 8 );
+	port 
+	(
+		a,b:		in  std_logic_vector(num-1 downto 0);
+		sel:		in  std_logic;
+		s:			out std_logic_vector(num-1 downto 0)
 	);
 	end component;
 

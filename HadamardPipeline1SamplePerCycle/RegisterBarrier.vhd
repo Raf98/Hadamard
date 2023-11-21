@@ -5,7 +5,7 @@ library work;
 use work.HadamardPackage.all;
 
 entity RegisterNBits is 
-generic(num:		integer := 4);
+generic(num:		integer := 9);
 
 port
 (

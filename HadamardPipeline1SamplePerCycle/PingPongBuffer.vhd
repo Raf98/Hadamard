@@ -10,7 +10,8 @@ use work.HadamardPackage.all;
 entity PingPongBuffer is
 generic(
 	num:		integer := 8;
-	addrNum:	integer := 2
+	addrNum:	integer := 2;
+	rNum:		integer := 4
 );
 port
 (	
@@ -26,7 +27,7 @@ end PingPongBuffer;
 
 architecture behavior of PingPongBuffer is
 
-type registers is array( 0 to num - 1 ) of std_logic_vector( num - 1 downto 0 );
+type registers is array( 0 to rNum - 1 ) of std_logic_vector( num - 1 downto 0 );
 signal regBank:	registers;
 
 begin
