@@ -1,0 +1,35 @@
+# Compile of FullAdder.vhd was successful.
+# Compile of HadamardCombinational.vhd failed with 3 errors.
+# Compile of HadamardCombinational_TB.vhd was successful.
+# Compile of HadamardPackage.vhd was successful.
+# Compile of Mux.vhd was successful.
+# Compile of MuxMulti.vhd was successful.
+# Compile of Register.vhd was successful.
+# Compile of RegisterBarrier.vhd was successful.
+# Compile of RippleCarry.vhd was successful.
+# Compile of ShiftRight.vhd was successful.
+# 10 compiles, 1 failed with 3 errors.
+# Compile of FullAdder.vhd was successful.
+# Compile of HadamardCombinational.vhd was successful.
+# Compile of HadamardCombinational_TB.vhd was successful.
+# Compile of HadamardPackage.vhd was successful.
+# Compile of Mux.vhd was successful.
+# Compile of MuxMulti.vhd was successful.
+# Compile of Register.vhd was successful.
+# Compile of RegisterBarrier.vhd was successful.
+# Compile of RippleCarry.vhd was successful.
+# Compile of ShiftRight.vhd was successful.
+# 10 compiles, 0 failed with no errors.
+# Load canceled
+# Compile of FullAdder.vhd was successful.
+# Compile of HadamardCombinational.vhd was successful.
+# Compile of HadamardCombinational_TB.vhd was successful.
+# Compile of HadamardPackage.vhd was successful.
+# Compile of Mux.vhd was successful.
+# Compile of MuxMulti.vhd was successful.
+# Compile of Register.vhd was successful.
+# Compile of RegisterBarrier.vhd was successful.
+# Compile of RippleCarry.vhd was successful.
+# Compile of ShiftRight.vhd was successful.
+# 10 compiles, 0 failed with no errors.
+# Load canceled

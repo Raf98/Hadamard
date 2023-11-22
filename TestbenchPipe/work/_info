@@ -1,0 +1,430 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dD:/intelFPGA_lite/20.1
+Efulladder
+Z0 w1700075856
+Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z2 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 0
+Z3 dC:/Users/LPDar/Documents/PASD/Hadamard/TestbenchPipe
+Z4 8C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/FullAdder.vhd
+Z5 FC:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/FullAdder.vhd
+l0
+L4 1
+V^Xl;iD2gWjOC7<f[R]hX<3
+!s100 ;4J_fna6h3lDb6<c_APb;2
+Z6 OV;C;2020.1;71
+32
+Z7 !s110 1700642673
+!i10b 1
+Z8 !s108 1700642673.000000
+Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/FullAdder.vhd|
+Z10 !s107 C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/FullAdder.vhd|
+!i113 1
+Z11 o-work work -2002 -explicit
+Z12 tExplicit 1 CvgOpt 0
+Abehavior
+R1
+R2
+DEx4 work 9 fulladder 0 22 ^Xl;iD2gWjOC7<f[R]hX<3
+!i122 0
+l13
+L12 5
+V0hl]e[lIUe`kP9:4LTcD70
+!s100 0:oYhDPL@UBCMad3U?ncb1
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Phadamardpackage
+R1
+R2
+!i122 1
+w1700463629
+R3
+8C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/HadamardPackage.vhd
+FC:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/HadamardPackage.vhd
+l0
+L5 1
+Vog3KJ2Jn8CkjPcg_h=6<c2
+!s100 Gf>eZa8YPBbOhf5fEjJVH2
+R6
+32
+R7
+!i10b 1
+R8
+!s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/HadamardPackage.vhd|
+!s107 C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/HadamardPackage.vhd|
+!i113 1
+R11
+R12
+Ehadamardpipeline
+Z13 w1700528275
+Z14 DPx4 work 15 hadamardpackage 0 22 og3KJ2Jn8CkjPcg_h=6<c2
+Z15 DPx4 ieee 16 std_logic_signed 0 22 C<aanc0R`<LWPSe[JYRP^3
+Z16 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+R1
+R2
+!i122 2
+R3
+Z17 8C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/HadamardPipeline.vhd
+Z18 FC:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/HadamardPipeline.vhd
+l0
+L9 1
+VA8boHbKL=889dWlJ6RTkY1
+!s100 cdYgcZ9Cbhlb3G3^74JRA2
+R6
+32
+R7
+!i10b 1
+R8
+Z19 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/HadamardPipeline.vhd|
+Z20 !s107 C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/HadamardPipeline.vhd|
+!i113 1
+R11
+R12
+Astructure
+R14
+R15
+R16
+R1
+R2
+DEx4 work 16 hadamardpipeline 0 22 A8boHbKL=889dWlJ6RTkY1
+!i122 2
+l39
+L27 114
+Vn6Q[B7=RQhFe3h9FI_Qb_3
+!s100 GoG_9NOVT1TE=FEl;dYWe0
+R6
+32
+R7
+!i10b 1
+R8
+R19
+R20
+!i113 1
+R11
+R12
+Ehadamardpipeline_vhd_tst
+Z21 w1700640911
+Z22 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R16
+Z23 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+R1
+R2
+!i122 3
+R3
+Z24 8C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/HadamardPipeline_TB.vhd
+Z25 FC:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/HadamardPipeline_TB.vhd
+l0
+L34 1
+Vb_><E24?3>aO^gd80IeaY3
+!s100 PW^13^62BZE1n66CO_oYL2
+R6
+32
+R7
+!i10b 1
+R8
+Z26 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/HadamardPipeline_TB.vhd|
+Z27 !s107 C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/HadamardPipeline_TB.vhd|
+!i113 1
+R11
+R12
+Ahadamardpipeline_arch
+R22
+R16
+R23
+R1
+R2
+DEx4 work 24 hadamardpipeline_vhd_tst 0 22 b_><E24?3>aO^gd80IeaY3
+!i122 3
+l122
+L36 231
+VVRoZEX<Y77aIcXiIC@CNI2
+!s100 ^`]Y;m]2T4TJbk9znFFoB1
+R6
+32
+R7
+!i10b 1
+R8
+R26
+R27
+!i113 1
+R11
+R12
+Emux
+Z28 w1700462580
+R1
+R2
+!i122 4
+R3
+Z29 8C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/Mux.vhd
+Z30 FC:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/Mux.vhd
+l0
+L4 1
+V@6S[?2_jL5n0zJXc<H3gd2
+!s100 L0g?7Ag0nXMK@egU9_0on2
+R6
+32
+R7
+!i10b 1
+R8
+Z31 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/Mux.vhd|
+Z32 !s107 C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/Mux.vhd|
+!i113 1
+R11
+R12
+Astructure
+R1
+R2
+DEx4 work 3 mux 0 22 @6S[?2_jL5n0zJXc<H3gd2
+!i122 4
+l16
+L14 10
+Vf;VNVifWMJ>4IU8A3aL3V1
+!s100 GoIS>WEkS5MZjINh@7nP02
+R6
+32
+R7
+!i10b 1
+R8
+R31
+R32
+!i113 1
+R11
+R12
+Emuxmulti
+R0
+R14
+R16
+R23
+R1
+R2
+!i122 5
+R3
+Z33 8C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/MuxMulti.vhd
+Z34 FC:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/MuxMulti.vhd
+l0
+L10 1
+VXkCUbQLd=[FanCj:F^QQg3
+!s100 <SVl_YoHDN1_XJ@JHAZQo2
+R6
+32
+R7
+!i10b 1
+R8
+Z35 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/MuxMulti.vhd|
+Z36 !s107 C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/MuxMulti.vhd|
+!i113 1
+R11
+R12
+Abehavior
+R14
+R16
+R23
+R1
+R2
+DEx4 work 8 muxmulti 0 22 XkCUbQLd=[FanCj:F^QQg3
+!i122 5
+l23
+L21 9
+VIdLm>]gVzbFUR2ndkW4O<3
+!s100 DWnmR=0d>eAH[<nnU4bdG1
+R6
+32
+R7
+!i10b 1
+R8
+R35
+R36
+!i113 1
+R11
+R12
+Eregister1bit
+R0
+R1
+R2
+!i122 6
+R3
+Z37 8C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/Register.vhd
+Z38 FC:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/Register.vhd
+l0
+L5 1
+VeQbURPAE9RJnJ3VG=Z]YK1
+!s100 cKQATL65a8Fa;4n]cYYX^2
+R6
+32
+R7
+!i10b 1
+R8
+Z39 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/Register.vhd|
+Z40 !s107 C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/Register.vhd|
+!i113 1
+R11
+R12
+Abehavior
+R1
+R2
+DEx4 work 12 register1bit 0 22 eQbURPAE9RJnJ3VG=Z]YK1
+!i122 6
+l16
+L14 27
+VhRCNfFR8>F96WfP=1N^lk3
+!s100 kHa=^_UWDUECzjFci;;:g2
+R6
+32
+R7
+!i10b 1
+R8
+R39
+R40
+!i113 1
+R11
+R12
+Eregisternbits
+Z41 w1700463432
+R14
+R1
+R2
+!i122 7
+R3
+Z42 8C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/RegisterBarrier.vhd
+Z43 FC:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/RegisterBarrier.vhd
+l0
+L7 1
+V:mBNzkXA2dL1?RUnh^Via1
+!s100 576lNSQ59;jUFSDVS;L@k2
+R6
+32
+R7
+!i10b 1
+R8
+Z44 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/RegisterBarrier.vhd|
+Z45 !s107 C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/RegisterBarrier.vhd|
+!i113 1
+R11
+R12
+Astructure
+R14
+R1
+R2
+DEx4 work 13 registernbits 0 22 :mBNzkXA2dL1?RUnh^Via1
+!i122 7
+l21
+L18 12
+ViFCM=A@:bJO`c:W7LV=k40
+!s100 57[jJRciUX2h6nl;fG9bM3
+R6
+32
+R7
+!i10b 1
+R8
+R44
+R45
+!i113 1
+R11
+R12
+Eripplecarry
+Z46 w1700543845
+R14
+R1
+R2
+!i122 8
+R3
+Z47 8C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/RippleCarry.vhd
+Z48 FC:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/RippleCarry.vhd
+l0
+L7 1
+V^SlbGEz<4Vzl1MP3^?70E2
+!s100 `XzSbUl@`bSHE=`R_6@nQ2
+R6
+32
+R7
+!i10b 1
+R8
+Z49 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/RippleCarry.vhd|
+Z50 !s107 C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/RippleCarry.vhd|
+!i113 1
+R11
+R12
+Astructure
+R14
+R1
+R2
+DEx4 work 11 ripplecarry 0 22 ^SlbGEz<4Vzl1MP3^?70E2
+!i122 8
+l26
+L19 37
+V=^]4Q;AdaFNRAJUB3<2PN3
+!s100 XOgRS[Nji6F?IQa>78OUV1
+R6
+32
+R7
+!i10b 1
+R8
+R49
+R50
+!i113 1
+R11
+R12
+Eshiftright
+Z51 w1700462402
+R14
+R23
+R16
+R1
+R2
+!i122 9
+R3
+Z52 8C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/ShiftRight.vhd
+Z53 FC:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/ShiftRight.vhd
+l0
+L9 1
+V1ffe@l@6JUjbjdcP8LW@J1
+!s100 NW=Y8?=AV9gC?Q?P_QLaH3
+R6
+32
+R7
+!i10b 1
+R8
+Z54 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/ShiftRight.vhd|
+!s107 C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/ShiftRight.vhd|
+!i113 1
+R11
+R12
+Astructure
+R14
+R23
+R16
+R1
+R2
+DEx4 work 10 shiftright 0 22 1ffe@l@6JUjbjdcP8LW@J1
+!i122 9
+l19
+L17 11
+VJ5^A[8EWn34fE^jE4U7GT2
+!s100 z8zb1ULBGbJe93ZXQ^O[m2
+R6
+32
+R7
+!i10b 1
+R8
+R54
+Z55 !s107 C:/Users/LPDar/Documents/PASD/Hadamard/HadamardPipeline/ShiftRight.vhd|
+!i113 1
+R11
+R12

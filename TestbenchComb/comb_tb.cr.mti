@@ -1,0 +1,94 @@
+C:/Users/LPDar/Documents/PASD/Hadamard/HadamardCombinational/FullAdder.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/LPDar/Documents/PASD/Hadamard/HadamardCombinational/FullAdder.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity FullAdder
+-- Compiling architecture behavior of FullAdder
+
+} {} {}} C:/Users/LPDar/Documents/PASD/Hadamard/HadamardCombinational/HadamardCombinational_TB.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/LPDar/Documents/PASD/Hadamard/HadamardCombinational/HadamardCombinational_TB.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity HadamardCombinational_vhd_tst
+-- Compiling architecture HadamardCombinational_arch of HadamardCombinational_vhd_tst
+
+} {} {}} C:/Users/LPDar/Documents/PASD/Hadamard/HadamardCombinational/RegisterBarrier.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/LPDar/Documents/PASD/Hadamard/HadamardCombinational/RegisterBarrier.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package HadamardPackage
+-- Compiling entity RegisterNBits
+-- Compiling architecture structure of RegisterNBits
+
+} {} {}} C:/Users/LPDar/Documents/PASD/Hadamard/HadamardCombinational/ShiftRight.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/LPDar/Documents/PASD/Hadamard/HadamardCombinational/ShiftRight.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package HadamardPackage
+-- Compiling entity ShiftRight
+-- Compiling architecture structure of ShiftRight
+
+} {} {}} C:/Users/LPDar/Documents/PASD/Hadamard/HadamardCombinational/MuxMulti.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/LPDar/Documents/PASD/Hadamard/HadamardCombinational/MuxMulti.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package HadamardPackage
+-- Compiling entity MuxMulti
+-- Compiling architecture behavior of MuxMulti
+
+} {} {}} C:/Users/LPDar/Documents/PASD/Hadamard/HadamardCombinational/Register.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/LPDar/Documents/PASD/Hadamard/HadamardCombinational/Register.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Register1Bit
+-- Compiling architecture behavior of Register1Bit
+
+} {} {}} C:/Users/LPDar/Documents/PASD/Hadamard/HadamardCombinational/RippleCarry.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/LPDar/Documents/PASD/Hadamard/HadamardCombinational/RippleCarry.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package HadamardPackage
+-- Compiling entity RippleCarry
+-- Compiling architecture structure of RippleCarry
+
+} {} {}} C:/Users/LPDar/Documents/PASD/Hadamard/HadamardCombinational/HadamardCombinational.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/LPDar/Documents/PASD/Hadamard/HadamardCombinational/HadamardCombinational.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Loading package HadamardPackage
+-- Compiling entity HadamardCombinational
+-- Compiling architecture structure of HadamardCombinational
+
+} {} {}} C:/Users/LPDar/Documents/PASD/Hadamard/HadamardCombinational/HadamardPackage.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/LPDar/Documents/PASD/Hadamard/HadamardCombinational/HadamardPackage.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling package HadamardPackage
+
+} {} {}} C:/Users/LPDar/Documents/PASD/Hadamard/HadamardCombinational/Mux.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/LPDar/Documents/PASD/Hadamard/HadamardCombinational/Mux.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Mux
+-- Compiling architecture structure of Mux
+
+} {} {}}
