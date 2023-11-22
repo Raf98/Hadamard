@@ -123,11 +123,11 @@ clock: PROCESS
 -- (        )                                                 
 -- variable declarations                                      
 BEGIN                                                         
-      clk <= '1', '0' AFTER 100 ns;
-  		WAIT FOR 200 ns;                                                         
+      clk <= '1', '0' AFTER 1 ns;
+  		WAIT FOR 2 ns;                                                         
 END PROCESS;
 
-reset <= '1','0' after 300 ns;
+reset <= '1','0' after 2.5 ns;
 
 
 stimulus_in: process 
@@ -137,10 +137,10 @@ stimulus_in: process
 	variable out1: std_logic_vector(8 downto 0);
 	variable out2: std_logic_vector(8 downto 0);
 	variable out3: std_logic_vector(8 downto 0);
-	variable str_out0: string(40 downto 32);
-	variable str_out1: string(30 downto 22);
-	variable str_out2: string(20 downto 12);
-	variable str_out3: string(10 downto 2);
+	variable str_out0: string(9 downto 1);
+	variable str_out1: string(9 downto 1);
+	variable str_out2: string(9 downto 1);
+	variable str_out3: string(9 downto 1);
 	variable outline: line;	
 		--
 	variable num0: string(8 downto 1);
@@ -148,16 +148,16 @@ stimulus_in: process
 	variable num2: string(8 downto 1);
 	variable num3: string(8 downto 1);
 	variable blank: string(2 downto 1);
+	
     begin
     
-		FILE_OPEN(input, "input.txt", READ_MODE);
-		FILE_OPEN(output, "output.txt", WRITE_MODE);
-		
-		
+		FILE_OPEN(input, "hadamard_input.txt", READ_MODE);
+		FILE_OPEN(output, "comb_output.txt", WRITE_MODE);
+				
 		wait until (reset = '0');
 		while not endfile(input) loop
 		
-			--INPUTS
+			--READING INPUTS
 			readline(input, inline);
 			read(inline, num0);
 			w0 <= str_to_stdvec(num0);
@@ -173,12 +173,12 @@ stimulus_in: process
 			
 			
 			wait until(clk'event and clk = '1');
-			--wait until(clk'event and clk = '1');
+--			--wait until(clk'event and clk = '1');
 			--wait until(clk'event and clk = '1');
 			--wait until(clk'event and clk = '1');
 			
 			
-			--OUTPUTS
+			--WRITING OUTPUTS
 			out0 := s0;
 			str_out0 := stdvec_to_str(out0);
 			write(outline, str_out0);
@@ -200,6 +200,8 @@ stimulus_in: process
 		
 		file_close(input);
 		file_close(output);
+		--writeline(output, outline);
+		wait;
 	end process;
                                           
 END HadamardCombinational_arch;
