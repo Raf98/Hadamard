@@ -38,9 +38,9 @@ begin
 	
 		if ( clk = '1' and clk'event ) then
 			if ( writeRegister = '1' ) then
-				regBank( conv_integer( adressWrite )  ) <= dataWrite( addrNum - 1 downto 0 );
+				regBank( conv_integer( adressWrite )  ) <= dataWrite;
 			end if;
-			w0 <= regBank(0) after 1ns;
+			w0 <= regBank(0);
 			w1 <= regBank(1);
 			w2 <= regBank(2);
 			w3 <= regBank(3);
