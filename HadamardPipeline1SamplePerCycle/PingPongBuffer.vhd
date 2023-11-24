@@ -33,17 +33,22 @@ signal regBank:	registers;
 begin
 	
 	process( clk, writeRegister )
-
+		
 	begin
 	
 		if ( clk = '1' and clk'event ) then
 			if ( writeRegister = '1' ) then
 				regBank( conv_integer( adressWrite )  ) <= dataWrite;
 			end if;
-			w0 <= regBank(0);
-			w1 <= regBank(1);
-			w2 <= regBank(2);
-			w3 <= regBank(3);
+	
+			-- a cada 4 ciclos, uma nova amostra de 4 novos valores escritos eh disponibilizada para leitura,
+			-- implementando, assim, um buffer duplo/ ping-pong
+			if (adressWrite = "00") then
+					w0 <= regBank(0);
+					w1 <= regBank(1);
+					w2 <= regBank(2);
+					w3 <= regBank(3);
+				end if;
 		end if;
 		
 	end process;

@@ -17,12 +17,20 @@ generic
 
 port
 (
+	 --ENTRADAS
 	 clock, clear:			in  std_logic;
     w:     					in  std_logic_vector(num - 1 downto 0);
-	 x0, X1:     			out std_logic_vector(num downto 0);
-	 z0:						out std_logic_vector(num + 1 downto 0);
-	 y0, y1, y2, y3:     out std_logic_vector(num - 1 downto 0);
-	 v0, v1, v2, v3:		out std_logic_vector(num	  downto 0);
+	 
+	 
+	 --SAIDAS AUXILIARES, PARA VERIFICAR VALORES
+	 x0:     				out std_logic_vector(num downto 0);			--imprime saida do primeiro somador
+	 z0:						out std_logic_vector(num + 1 downto 0);	--imprime saida do segundo somador
+	 y0, y1, y2, y3:     out std_logic_vector(num - 1 downto 0);	--imprime valores de entrada escritos no primeiro buffer
+	 v0, v1, v2, v3:		out std_logic_vector(num	  downto 0);	--imprime valores de entrada escritos no segundo buffer
+	 s0, s1:					out std_logic_vector(1 downto 0);			--imprime valores dos sinais seletores dos muxes
+	 u0, u1:					out std_logic;                            --imprime valores dos sinais de selecao de operacao dos somadores
+	 
+	 --SAIDA
     s:     					out std_logic_vector(num	  downto 0)
 );
 end HadamardPipeline1SamplePerCycle;
@@ -31,6 +39,7 @@ architecture structure of HadamardPipeline1SamplePerCycle is
 
 	 type hadamard_entries is array (wNum - 1 downto 0) of std_logic_vector(num - 1 downto 0);
 	 
+	 --SINAIS DE SAIDAS INTERMEDIARIAS DA PARTE OPERATIVA DO CIRCUITO
 	 signal a0, a1, a2, a3:		std_logic_vector(num - 1 downto 0);
 	 signal b0, b1, b2, b3:    std_logic_vector(num - 1 downto 0);
 	 signal c0, c1, c2, c3: 	std_logic_vector(num     downto 0);
@@ -39,15 +48,13 @@ architecture structure of HadamardPipeline1SamplePerCycle is
 	 signal f0, f1, f2, f3: 	std_logic_vector(num + 1 downto 0);
 	 signal g0, g1, g2, g3: 	std_logic_vector(num + 1 downto 0);
 
+	 --sinal de carry
+    signal carry:    			std_logic_vector(num	    downto 0);				
 	 
-    signal carry:    			std_logic_vector(num	   downto 0);
-	 
-	 signal sub0, sub1:		std_logic;
-	 signal sel:		std_logic_vector(wNum - 1 downto 0);
-	 signal sel0, sel1:		std_logic_vector(rNum - 1 downto 0);
-	 signal selReg0, selReg1:	std_logic_vector(rNum - 1 downto 0);
-	 signal writeReg: std_logic_vector(rNum - 1 downto 0);
-	 signal counter:  std_logic_vector(4        downto 0) := (others=>'0');
+	 signal sub0, sub1:		std_logic;													--selecionam tipo da operacao para os somadores/ subtratores
+	 signal sel0, sel1:		std_logic_vector(rNum - 1 downto 0);				--selecionam quais entradas do muxes utilizar nas operacoes
+	 signal selReg0, selReg1:	std_logic_vector(rNum - 1 downto 0);			--selecionam os registradores a serem escritos naquele ciclo para cada buffer
+	 signal counter:  std_logic_vector(1 downto 0) := (others=>'0');	--		--responsavel por armazenar o valor atual da contagem, necessaria para controlar o pipeline
 	
 	 begin
 	 
@@ -59,7 +66,7 @@ architecture structure of HadamardPipeline1SamplePerCycle is
 					w2 				=> a2,
 					w3 				=> a3,
 	 				clk 			  	=> clock,
-	 				writeRegister 	=> writeReg(0));
+	 				writeRegister 	=> '1');
 					
 	 
 	 y0 <= a0;
@@ -80,18 +87,22 @@ architecture structure of HadamardPipeline1SamplePerCycle is
 	 c0(num) <= carry(1);
 	 
 	 X0 <= C0;
+	 s0 <= sel0;
+	 s1 <= sel1;
+	 u0 <= sub0;
+	 u1 <= sub1;
 	 
 	 
 	 Buffer1: PingPongBuffer
-	 generic map(num => 9)
-	 port map(	adressWrite 	=>	selReg0,
+	 generic map(num => 9) 
+	 port map(	adressWrite 	=>	selReg1,
 	 				dataWrite 		=> c0,
 	 				w0 				=> d0,
 					w1 				=> d1,
 					w2 				=> d2,
 					w3 				=> d3,
 	 				clk 			  	=> clock,
-	 				writeRegister 	=> writeReg(1));
+	 				writeRegister 	=> '1');
 	   			
 					
 	 v0 <= d0;
@@ -120,112 +131,92 @@ architecture structure of HadamardPipeline1SamplePerCycle is
 	 
 	 s <= g0(num downto 0);
 	 
-	 ------------------------Processo de escrita na barreira temporal----------
+	 ------------------------Processo de escrita/leitura no pipeline----------
 
 
 	process(clock, clear)
 
 	begin
 	
+		-- inicializacao feita pelo clear, selecionando o endereco 0 do buffer de entrada para ser escrito
+		-- como eh o unico sinal necessario para o primeiro processo de escrita, eh a unica a ser inicializada
 		if(clear = '1') then
-			sel0 <= "00";
-			sel1 <= "00";
-			writeReg <= "01";
-			sub0 <= '0';
-			sub1 <= '0';
+		
 			selReg0 <= "00";
+			
 		elsif(clock = '1' and clock'event and clear = '0')then
 		
-			-- ESCRITA NO BUFFER0; LEITURA DO BUFFER1
-			if (counter = "0000") then
+			-- no ciclo 0 (primeiro ciclo), escreve no endereco 0 do buffer de entrada e define que
+			-- o proximo endereco/ registrador a ser escrito eh o 1
+			
+			-- os demais sinais estao assim organizados para que o pipeline funcione corretamente,
+			-- sendo assim, as selecoes de sub0 e sel0 soh farao sentido na segunda bateria de ciclos,
+			-- que comeca no ciclo 4 (se contarmos a partir do ciclo 0), que eh o mesmo ciclo em que 
+			-- o primeira carga de escrita no buffer de entrada tem seu valor gravado em a0, a1, a2 e a3, 
+			-- cujos valores serao, a partir daqui, lidos e usados como base para o mux selecionar, com sel0,
+			-- quais entradas utilizar no somador, com operacao escolhida por sub0	
+			
+			-- tambem no ciclo 4 define que, no proximo ciclo, o resultado da soma de a0 com a1 devera ser
+			-- escrito no registrador de endereco 0 do buffer de "saida"/ buffer 2
+			
+			-- o sinal sub1 do passa a ser usado apenas em ciclos posteriores (a partir do ciclo 12), fazendo a subtracao
+			-- sob os valores escolhidos nos muxes por meio de sel1 no seu ciclo imediatamente anterior (d2 e d3), 
+			-- com a escrita do resultado sendo realizada no endereco 3 do segundo buffer
+			
+			
+			if (counter = "00") then
+			
 				selReg0 <= "01";
-				sub1 <= '1';
-				sel0 <= "11";
-			elsif(counter = "00001")then
-				selReg0 <= "10";
-				sub0 <= '1';
-				sub1 <= '0';
-				sel0 <= "00";
-				sel1 <= "11";
-			elsif(counter = "00010")then
-				selReg0 <= "11";
-				sub1 <= '1';
-				sel0 <= "11";
-			elsif(counter = "00011")then
-				writeReg <= "11";
-				selReg0 <= "00";
-				sel0 <= "00";
-				sel1 <= "00";
-				sub0 <= '0';
-				sub1 <= '0';
 				
-			-- LEITURA DO BUFFER0; ESCRITA DO BUFFER1
-			elsif(counter = "00100")then
-				selReg0 <= "01";
-				sel0 <= "11";
-				sub1 <= '1';
-			elsif(counter = "00101")then
-				selReg0 <= "10";
-				sel0 <= "00";
-				sel1 <= "11";
-				sub0 <= '1';
-				sub1 <= '0';
-			elsif(counter = "00110")then
-				selReg0 <= "11";
-				sel0 <= "11";
-				sub1 <= '1';
-			elsif(counter = "00111")then
-				--writeReg <= "01";
-				selReg0 <= "00";
-				sel1 <= "00";
-				sub1 <= '0';
 				sub0 <= '0';
+				sel0 <= "00";
+
+				selReg1 <= "00";
 				
-			-- ESCRITA NO BUFFER0; LEITURA DO BUFFER1
-			elsif(counter = "01000")then
-				selReg0 <= "01";
 				sub1 <= '1';
-			elsif(counter = "01001")then
+				
+			-- no ciclo 5, eh realizada a primeira escrita no buffer de saida, no endereco 0, como 
+			-- selecionado no ciclo 4 e, a partir do ciclo 9 (decimo ciclo), temos o primeiro valor na saida,
+			-- sendo este o calculo da soma de d0 e d1, os quais representam os valores gravados 
+			-- previamente nos ciclos 5 e 6 nos enderecos 0 e 1, respectivamente
+				
+			elsif(counter = "01")then
+			
 				selReg0 <= "10";
+				
+				sel0 <= "11";
+				
+				selReg1 <= "01";
+				
 				sub1 <= '0';
-				sel1 <= "11";
-			elsif(counter = "01010")then
+				sel1 <= "00";
+				
+				
+			elsif(counter = "10")then
+			
 				selReg0 <= "11";
+				
+				sub0 <= '1';
+				sel0 <= "00";
+				
+				selReg1 <= "10";
+				
 				sub1 <= '1';
+				
+			elsif(counter = "11")then
+				
+				selReg0 <= "00";
+				
+				sel0 <= "11";
+				
 				selReg1 <= "11";
-			elsif(counter = "01011")then
-				--writeReg <= "10";
-				sel0 <= "00";
-				sel1 <= "00";
-				selReg0 <= "00";
-				sub0 <= '0';
-				sub1 <= '0';
 				
-			-- LEITURA DO BUFFER0; ESCRITA DO BUFFER1
-			elsif(counter = "01100")then
-				selReg0 <= "01";
-				sel0 <= "11";
-				sub1 <= '1';
-			elsif(counter = "01101")then
-				selReg0 <= "10";
-				sub0 <= '1';
 				sub1 <= '0';
-				sel0 <= "00";
-			elsif(counter = "01110")then
-				selReg0 <= "11";
-				sel0 <= "11";
-				sub1 <= '1';
+				sel1 <= "11";
+				
 			end if;
-			counter <= counter + "00001";
-			if(counter >= "01111") then
-				counter <= "00000";
-				sel0 <= "00";
-				sel1 <= "00";
-				writeReg <= "01";
-				sub0 <= '0';
-				sub1 <= '0';
-				selReg0 <= "00";
-			end if;
+			
+			counter <= counter + "01"; 
 		end if;
 	end process;
     
