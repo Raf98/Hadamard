@@ -36,8 +36,6 @@ port
 end HadamardPipeline1SamplePerCycle;
 
 architecture structure of HadamardPipeline1SamplePerCycle is
-
-	 type hadamard_entries is array (wNum - 1 downto 0) of std_logic_vector(num - 1 downto 0);
 	 
 	 --SINAIS DE SAIDAS INTERMEDIARIAS DA PARTE OPERATIVA DO CIRCUITO
 	 signal a0, a1, a2, a3:		std_logic_vector(num - 1 downto 0);
@@ -55,6 +53,9 @@ architecture structure of HadamardPipeline1SamplePerCycle is
 	 signal sel0, sel1:		std_logic_vector(rNum - 1 downto 0);				--selecionam quais entradas do muxes utilizar nas operacoes
 	 signal selReg0, selReg1:	std_logic_vector(rNum - 1 downto 0);			--selecionam os registradores a serem escritos naquele ciclo para cada buffer
 	 signal counter:  std_logic_vector(1 downto 0) := (others=>'0');	--		--responsavel por armazenar o valor atual da contagem, necessaria para controlar o pipeline
+	
+	 type states is (waitClear, initialize, cycle_0_4_8_12, cycle_1_5_9, cycle_2_6_10, cycle_3_7_11);
+	 signal currentState, nextState : states;
 	
 	 begin
 	 
@@ -133,91 +134,187 @@ architecture structure of HadamardPipeline1SamplePerCycle is
 	 
 	 ------------------------Processo de escrita/leitura no pipeline----------
 
+	 
+	 
 
-	process(clock, clear)
 
+--	pipelineProcess: process(clock, clear)
+--
+--	begin
+--	
+--		-- inicializacao feita pelo clear, selecionando o endereco 0 do buffer de entrada para ser escrito
+--		-- como eh o unico sinal necessario para o primeiro processo de escrita, eh a unica a ser inicializada
+--		if(clear = '1') then
+--		
+--			selReg0 <= "00";
+--			
+--		elsif(clock = '1' and clock'event and clear = '0')then
+--		
+--			-- no ciclo 0 (primeiro ciclo), escreve no endereco 0 do buffer de entrada e define que
+--			-- o proximo endereco/ registrador a ser escrito eh o 1
+--			
+--			-- os demais sinais estao assim organizados para que o pipeline funcione corretamente,
+--			-- sendo assim, as selecoes de sub0 e sel0 soh farao sentido na segunda bateria de ciclos,
+--			-- que comeca no ciclo 4 (se contarmos a partir do ciclo 0), que eh o mesmo ciclo em que 
+--			-- o primeira carga de escrita no buffer de entrada tem seu valor gravado em a0, a1, a2 e a3, 
+--			-- cujos valores serao, a partir daqui, lidos e usados como base para o mux selecionar, com sel0,
+--			-- quais entradas utilizar no somador, com operacao escolhida por sub0	
+--			
+--			-- tambem no ciclo 4 define que, no proximo ciclo, o resultado da soma de a0 com a1 devera ser
+--			-- escrito no registrador de endereco 0 do buffer de "saida"/ buffer 2
+--			
+--			-- o sinal sub1 do passa a ser usado apenas em ciclos posteriores (a partir do ciclo 12), fazendo a subtracao
+--			-- sob os valores escolhidos nos muxes por meio de sel1 no seu ciclo imediatamente anterior (d2 e d3), 
+--			-- com a escrita do resultado sendo realizada no endereco 3 do segundo buffer
+--			
+--			
+--			if (counter = "00") then
+--			
+--				selReg0 <= "01";
+--				
+--				sub0 <= '0';
+--				sel0 <= "00";
+--
+--				selReg1 <= "00";
+--				
+--				sub1 <= '1';
+--				
+--			-- no ciclo 5, eh realizada a primeira escrita no buffer de saida, no endereco 0, como 
+--			-- selecionado no ciclo 4 e, a partir do ciclo 9 (decimo ciclo), temos o primeiro valor na saida,
+--			-- sendo este o calculo da soma de d0 e d1, os quais representam os valores gravados 
+--			-- previamente nos ciclos 5 e 6 nos enderecos 0 e 1, respectivamente
+--				
+--			elsif(counter = "01")then
+--			
+--				selReg0 <= "10";
+--				
+--				sel0 <= "11";
+--				
+--				selReg1 <= "01";
+--				
+--				sub1 <= '0';
+--				sel1 <= "00";
+--				
+--				
+--			elsif(counter = "10")then
+--			
+--				selReg0 <= "11";
+--				
+--				sub0 <= '1';
+--				sel0 <= "00";
+--				
+--				selReg1 <= "10";
+--				
+--				sub1 <= '1';
+--				
+--			elsif(counter = "11")then
+--				
+--				selReg0 <= "00";
+--				
+--				sel0 <= "11";
+--				
+--				selReg1 <= "11";
+--				
+--				sub1 <= '0';
+--				sel1 <= "11";
+--				
+--			end if;
+--			
+--			counter <= counter + "01"; 
+--		end if;
+--	end process;
+
+
+	reset_FSM: process(clear,clock)
 	begin
+		if (clear = '1') then
+			currentState <= waitClear;
+		elsif (clock = '1' AND clock'event) then
+			currentState <= nextState;
+		end if;
+	end process;
 	
-		-- inicializacao feita pelo clear, selecionando o endereco 0 do buffer de entrada para ser escrito
-		-- como eh o unico sinal necessario para o primeiro processo de escrita, eh a unica a ser inicializada
-		if(clear = '1') then
+	
+	process_FSM: process(currentState)
+	begin
 		
+		case currentState is
+		
+		when waitClear =>
+		
+			sub0 <= '0';
+			sel0 <= "00";
+			sub1 <= '0';
+			sel1 <= "00";
+		
+			nextState <= initialize;
+			
+		when initialize =>
+			--ciclo 0
 			selReg0 <= "00";
 			
-		elsif(clock = '1' and clock'event and clear = '0')then
-		
-			-- no ciclo 0 (primeiro ciclo), escreve no endereco 0 do buffer de entrada e define que
-			-- o proximo endereco/ registrador a ser escrito eh o 1
+			nextState <= cycle_0_4_8_12;
 			
-			-- os demais sinais estao assim organizados para que o pipeline funcione corretamente,
-			-- sendo assim, as selecoes de sub0 e sel0 soh farao sentido na segunda bateria de ciclos,
-			-- que comeca no ciclo 4 (se contarmos a partir do ciclo 0), que eh o mesmo ciclo em que 
-			-- o primeira carga de escrita no buffer de entrada tem seu valor gravado em a0, a1, a2 e a3, 
-			-- cujos valores serao, a partir daqui, lidos e usados como base para o mux selecionar, com sel0,
-			-- quais entradas utilizar no somador, com operacao escolhida por sub0	
+		when cycle_0_4_8_12 =>
+			--ciclo 0/1
+			selReg0 <= "01";
+			--ciclo 4
+			sub0 <= '0';
+			sel0 <= "00";
+			--ciclo 8/9
+			selReg1 <= "00";
+			--ciclo 12	
+			sub1 <= '1';
+			sel1 <= "11";
 			
-			-- tambem no ciclo 4 define que, no proximo ciclo, o resultado da soma de a0 com a1 devera ser
-			-- escrito no registrador de endereco 0 do buffer de "saida"/ buffer 2
+			nextState <= cycle_1_5_9;
 			
-			-- o sinal sub1 do passa a ser usado apenas em ciclos posteriores (a partir do ciclo 12), fazendo a subtracao
-			-- sob os valores escolhidos nos muxes por meio de sel1 no seu ciclo imediatamente anterior (d2 e d3), 
-			-- com a escrita do resultado sendo realizada no endereco 3 do segundo buffer
-			
-			
-			if (counter = "00") then
-			
-				selReg0 <= "01";
+		when cycle_1_5_9 =>
+			--ciclo 1/2
+			selReg0 <= "10";
+			--ciclo 5
+			sub0 <= '0';
+			sel0 <= "11";
+			--ciclo 9/10	
+			selReg1 <= "01";
+			--ciclo 9	
+			sub1 <= '0';
+			sel1 <= "00";
 				
-				sub0 <= '0';
-				sel0 <= "00";
-
-				selReg1 <= "00";
-				
-				sub1 <= '1';
-				
-			-- no ciclo 5, eh realizada a primeira escrita no buffer de saida, no endereco 0, como 
-			-- selecionado no ciclo 4 e, a partir do ciclo 9 (decimo ciclo), temos o primeiro valor na saida,
-			-- sendo este o calculo da soma de d0 e d1, os quais representam os valores gravados 
-			-- previamente nos ciclos 5 e 6 nos enderecos 0 e 1, respectivamente
-				
-			elsif(counter = "01")then
-			
-				selReg0 <= "10";
-				
-				sel0 <= "11";
-				
-				selReg1 <= "01";
-				
-				sub1 <= '0';
-				sel1 <= "00";
+			nextState <= cycle_2_6_10;
 				
 				
-			elsif(counter = "10")then
-			
+		when cycle_2_6_10 =>
+				--ciclo 2/3
 				selReg0 <= "11";
-				
+				--ciclo 6
 				sub0 <= '1';
 				sel0 <= "00";
-				
+				--ciclo 10/11
 				selReg1 <= "10";
-				
+				--ciclo 10
 				sub1 <= '1';
+				sel1 <= "00";
 				
-			elsif(counter = "11")then
+				nextState <= cycle_3_7_11;
 				
+	  when cycle_3_7_11 =>
+				--ciclo 3/4
 				selReg0 <= "00";
-				
+				--ciclo 7
+				sub0 <= '1';
 				sel0 <= "11";
-				
+				--ciclo 11/12
 				selReg1 <= "11";
-				
+				--ciclo 11
 				sub1 <= '0';
 				sel1 <= "11";
 				
-			end if;
+				nextState <= cycle_0_4_8_12;
+				
+	  end case;
 			
-			counter <= counter + "01"; 
-		end if;
 	end process;
+
     
 	end structure;

@@ -26,7 +26,10 @@
 -- 
 
 LIBRARY ieee;                                               
-USE ieee.std_logic_1164.all;                                
+USE ieee.std_logic_1164.all;
+USE ieee.std_logic_unsigned.all;
+USE ieee.numeric_std.ALL;
+USE std.textio.ALL;                                     
 
 ENTITY HadamardPipeline1SamplePerCycle_vhd_tst IS
 END HadamardPipeline1SamplePerCycle_vhd_tst;
@@ -35,6 +38,8 @@ ARCHITECTURE HadamardPipeline1SamplePerCycle_arch OF HadamardPipeline1SamplePerC
 -- signals                                                   
 SIGNAL clear : STD_LOGIC;
 SIGNAL clock : STD_LOGIC;
+
+SIGNAL start:	STD_LOGIC;
 
 SIGNAL w : STD_LOGIC_VECTOR(7 DOWNTO 0);
 
@@ -88,6 +93,36 @@ COMPONENT HadamardPipeline1SamplePerCycle
 
 	);
 END COMPONENT;
+
+function str_to_stdvec(inp: string) return std_logic_vector is
+	variable temp: std_logic_vector(inp'range);
+	begin
+		for i in inp'range loop
+			if (inp(i) = '1') then
+				temp(i) := '1';
+			elsif (inp(i) = '0') then
+				temp(i) := '0';
+			end if;
+		end loop;
+		return temp;
+	end function str_to_stdvec;
+
+function stdvec_to_str(inp: std_logic_vector) return string is
+		variable temp: string(inp'left+1 downto 1);
+	begin
+		for i in inp'reverse_range loop
+			if (inp(i) = '1') then
+				temp(i+1) := '1';
+			elsif (inp(i) = '0') then
+				temp(i+1) := '0';
+			end if;
+		end loop;
+		return temp;
+	end function stdvec_to_str;
+	
+	
+	file input, output: text;
+
 BEGIN
 	i1 : HadamardPipeline1SamplePerCycle
 	PORT MAP (
@@ -117,12 +152,89 @@ BEGIN
         -- code that executes only once                      
 WAIT;                                                       
 END PROCESS init;                                           
-always : PROCESS                                              
+clockProcess: PROCESS                                              
 -- optional sensitivity list                                  
 -- (        )                                                 
 -- variable declarations                                      
 BEGIN                                                         
-        -- code executes for every event on sensitivity list  
-WAIT;                                                        
-END PROCESS always;                                          
+      clock <= '1', '0' AFTER 1 ns;
+  		WAIT FOR 2 ns;                                                         
+END PROCESS;
+
+clear <= '1', '0' after 1.5 ns;
+start <= '0', '1' after 3 ns;
+
+stimulus_in: process 
+	variable inline: line;
+	--
+	variable out0: std_logic_vector(8 downto 0);
+	variable str_out0: string(9 downto 1);
+	variable outline: line;	
+		--
+	variable num: string(8 downto 1);
+	variable blank: string(2 downto 1);
+	
+	variable counter: integer;
+	variable innerCounterIn, innerCounterOut: integer;
+	
+    begin
+		counter := 0;
+		
+    
+		FILE_OPEN(input, "hadamard_input.txt", READ_MODE);
+		FILE_OPEN(output, "pipeline1sample_output.txt", WRITE_MODE);
+						
+		wait until (start = '1');
+		while counter <= 400 loop
+		
+			--READING INPUTS
+			if not endfile(input) then
+				innerCounterIn := 0;
+			
+				readline(input, inline);
+				while (innerCounterIn < 4) loop
+					
+					read(inline, num);
+					w <= str_to_stdvec(num);
+				
+					read(inline, blank(1)); --le o espaco vazio entre os valores de cada linha de entrada
+					
+					innerCounterIn := innerCounterIn + 1;
+					wait until(clock'event and clock = '1');
+				end loop;
+				
+				
+			end if;
+			
+			
+			
+--			--wait until(clk'event and clk = '1');
+			--wait until(clk'event and clk = '1');
+			--wait until(clk'event and clk = '1');
+			
+			
+			--WRITING OUTPUTS
+			if counter >= 10 then
+			
+				out0 := s;
+				str_out0 := stdvec_to_str(out0);
+				write(outline, str_out0);
+				write(outline, blank(1));
+				
+				
+				if (innerCounterOut = 3) then
+					writeline(output, outline);
+				end if;
+				
+			end if;
+			
+			counter := counter + 1;
+			innerCounterOut := innerCounterOut + 1;
+		end loop;		
+		
+		file_close(input);
+		file_close(output);
+		wait;
+	end process;  
+	
 END HadamardPipeline1SamplePerCycle_arch;
