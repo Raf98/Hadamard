@@ -38,7 +38,6 @@ ARCHITECTURE HadamardPipeline_arch OF HadamardPipeline_vhd_tst IS
 -- signals                                                   
 SIGNAL clear : STD_LOGIC;
 SIGNAL clock : STD_LOGIC;
-SIGNAL load : STD_LOGIC;
 SIGNAL w0 : STD_LOGIC_VECTOR(7 DOWNTO 0);
 SIGNAL w1 : STD_LOGIC_VECTOR(7 DOWNTO 0);
 SIGNAL w2 : STD_LOGIC_VECTOR(7 DOWNTO 0);
@@ -64,7 +63,6 @@ COMPONENT HadamardPipeline
 	--ENTRADAS TEMPORAIS
 	clear : IN STD_LOGIC;
 	clock : IN STD_LOGIC;
-	load : IN STD_LOGIC;
 	
 	--ENTRADAS DE DADOS
 	w0 : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
@@ -125,7 +123,6 @@ BEGIN
 -- list connections between master ports and signals
 	clear => clear,
 	clock => clock,
-	load => load,
 	
 	w0 => w0,
 	w1 => w1,
@@ -163,9 +160,7 @@ BEGIN
   		WAIT FOR 2 ns;                                                         
 END PROCESS;
 
-clear <= '1', '0' after 2.5 ns;
-load  <= '0', '1' after 2.5 ns;
-
+clear <= '1', '0' after 0.5 ns;
 
 stimulus_in: process 
 	variable inline: line;
@@ -196,9 +191,9 @@ stimulus_in: process
 		FILE_OPEN(output, "pipeline_output.txt", WRITE_MODE);
 						
 		wait until (clear = '0');
-		while counter <= 100 loop
+		while counter <= 101 loop
 		
-			--READING INPUTS
+			--LENDO ENTRADAS
 			if not endfile(input) then
 			
 				readline(input, inline);
@@ -206,7 +201,7 @@ stimulus_in: process
 				read(inline, num0);
 				w0 <= str_to_stdvec(num0);
 				
-				read(inline, blank(1)); --le o espaco vazio entre os valores de cada linha de entrada
+				read(inline, blank(1)); 								--le o espaco vazio entre os valores de cada linha de entrada
 				read(inline, num1);
 				w1 <= str_to_stdvec(num1);
 				
@@ -222,13 +217,10 @@ stimulus_in: process
 			
 			
 			wait until(clock'event and clock = '1');
---			--wait until(clk'event and clk = '1');
-			--wait until(clk'event and clk = '1');
-			--wait until(clk'event and clk = '1');
 			
 			
-			--WRITING OUTPUTS
-			if counter >= 1 then
+			--ESCREVENDO SAIDAS
+			if counter >= 2 then
 			
 				out0 := s0;
 				str_out0 := stdvec_to_str(out0);
