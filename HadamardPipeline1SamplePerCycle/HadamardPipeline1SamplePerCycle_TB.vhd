@@ -108,7 +108,7 @@ function str_to_stdvec(inp: string) return std_logic_vector is
 	end function str_to_stdvec;
 
 function stdvec_to_str(inp: std_logic_vector) return string is
-		variable temp: string(inp'left+1 downto 1);
+	variable temp: string(inp'left+1 downto 1);
 	begin
 		for i in inp'reverse_range loop
 			if (inp(i) = '1') then
@@ -118,7 +118,7 @@ function stdvec_to_str(inp: std_logic_vector) return string is
 			end if;
 		end loop;
 		return temp;
-	end function stdvec_to_str;
+	end function stdvec_to_str;	
 	
 	
 	file input, output: text;
@@ -179,57 +179,86 @@ stimulus_in: process
 	
     begin
 		counter := 0;
+		innerCounterIn := 0;
+		innerCounterOut := 0;
 		
     
 		FILE_OPEN(input, "hadamard_input.txt", READ_MODE);
 		FILE_OPEN(output, "pipeline1sample_output.txt", WRITE_MODE);
 						
 		wait until (start = '1');
-		while counter <= 400 loop
+		while counter <= 410 loop
 		
-			--READING INPUTS
+			-- devido a leitura dos valores ser realizada uma por vez nessa arquitetura, e o arquivo de entrada possuir
+			-- 4 valores de entrada por vez (para cada matriz 2x2 a ser calculada), tratativas condicionais adicionais
+			-- sao necessarias, de forma a manter, tambem para a saida em arquivo, a mesma organizacao de 4 valores 
+			-- por linha usada para as arquiteturas anteriores, as quais possuiam 4 entradas e 4 saidas por ciclo,
+			-- por isso esse padrao foi utilizada para os arquivos, e tambem porque prove uma forma mais adequada de
+			-- enxergar e comparar os resultados obtidos nas verificacoes
+			
 			if not endfile(input) then
 				innerCounterIn := 0;
 			
 				readline(input, inline);
-				while (innerCounterIn < 4) loop
+				while (innerCounterIn < 4 and counter < 400) loop
 					
 					read(inline, num);
 					w <= str_to_stdvec(num);
 				
-					read(inline, blank(1)); --le o espaco vazio entre os valores de cada linha de entrada
+					read(inline, blank(1)); 								-- le o espaco vazio entre os valores de cada linha de entrada
 					
 					innerCounterIn := innerCounterIn + 1;
+					
+					if(counter >= 11) then
+						out0 := s;
+						str_out0 := stdvec_to_str(out0);
+						write(outline, str_out0);
+						write(outline, blank(1));
+						
+						innerCounterOut := innerCounterOut + 1;
+						if (innerCounterOut = 4) then						-- caso seja o quarto valor lido da saida, escreve uma linha no arquivo de saida, 
+							writeline(output, outline);					-- com as 4 saidas resultantes das multiplicacoes hadamard
+							innerCounterOut := 0;
+						end if;
+					end if;
+					
+					counter := counter + 1;
 					wait until(clock'event and clock = '1');
 				end loop;
 				
-				
-			end if;
-			
-			
-			
---			--wait until(clk'event and clk = '1');
-			--wait until(clk'event and clk = '1');
-			--wait until(clk'event and clk = '1');
-			
-			
-			--WRITING OUTPUTS
-			if counter >= 10 then
-			
+				if (counter = 400) then
+					w <= "00000000";
+					
+					out0 := s;
+					str_out0 := stdvec_to_str(out0);
+					write(outline, str_out0);
+					write(outline, blank(1));
+					
+					innerCounterOut := innerCounterOut + 1;
+					if (innerCounterOut = 4) then
+						writeline(output, outline);
+						innerCounterOut := 0;
+					end if;
+						
+					counter := counter + 1;
+					wait until(clock'event and clock = '1');
+				end if;
+			else 
 				out0 := s;
 				str_out0 := stdvec_to_str(out0);
 				write(outline, str_out0);
 				write(outline, blank(1));
 				
-				
-				if (innerCounterOut = 3) then
+				innerCounterOut := innerCounterOut + 1;
+				if (innerCounterOut = 4) then
 					writeline(output, outline);
+					innerCounterOut := 0;
 				end if;
-				
+						
+				counter := counter + 1;
+				wait until(clock'event and clock = '1');
 			end if;
 			
-			counter := counter + 1;
-			innerCounterOut := innerCounterOut + 1;
 		end loop;		
 		
 		file_close(input);
