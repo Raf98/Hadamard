@@ -24,8 +24,6 @@ port
 end HadamardCombinational;
 
 architecture structure of HadamardCombinational is
-
-	 type hadamard_entries is array (wNum - 1 downto 0) of std_logic_vector(num - 1 downto 0);
 	 
     signal a0, a1, a2, a3:		std_logic_vector(num downto 0);
 	 signal b0, b1, b2, b3:    std_logic_vector(num + 1 downto 0);
