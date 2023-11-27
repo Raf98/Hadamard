@@ -96,7 +96,7 @@ function stdvec_to_str(inp: std_logic_vector) return string is
 
 
 BEGIN
-	i1 : HadamardCombinational
+	comb : entity work.HadamardCombinational
 	PORT MAP (
 -- list connections between master ports and signals
 	s0 => s0,
@@ -152,7 +152,7 @@ stimulus_in: process
     begin
     
 		FILE_OPEN(input, "hadamard_input.txt", READ_MODE);
-		FILE_OPEN(output, "comb_output.txt", WRITE_MODE);
+		--FILE_OPEN(output, "comb_output.txt", WRITE_MODE);
 				
 		wait until (reset = '0');
 		while not endfile(input) loop
@@ -179,29 +179,37 @@ stimulus_in: process
 			
 			
 			--WRITING OUTPUTS
-			out0 := s0;
-			str_out0 := stdvec_to_str(out0);
-			write(outline, str_out0);
-			write(outline, blank(1));
-			out1 := s1;
-			str_out1 := stdvec_to_str(out1);
-			write(outline, str_out1);
-			write(outline, blank(1));
-			out2 := s2;
-			str_out2 := stdvec_to_str(out2);
-			write(outline, str_out2);
-			write(outline, blank(1));
-			out3 := s3;
-			str_out3 := stdvec_to_str(out3);
-			write(outline, str_out3);
-			write(outline, blank(1));
-			writeline(output, outline);
-		end loop;		
+--			out0 := s0;
+--			str_out0 := stdvec_to_str(out0);
+--			write(outline, str_out0);
+--			write(outline, blank(1));
+--			out1 := s1;
+--			str_out1 := stdvec_to_str(out1);
+--			write(outline, str_out1);
+--			write(outline, blank(1));
+--			out2 := s2;
+--			str_out2 := stdvec_to_str(out2);
+--			write(outline, str_out2);
+--			write(outline, blank(1));
+--			out3 := s3;
+--			str_out3 := stdvec_to_str(out3);
+--			write(outline, str_out3);
+--			write(outline, blank(1));
+--			writeline(output, outline);
+		end loop;
 		
+		wait until(clk'event and clk = '1');
+		wait until(clk'event and clk = '1');
+		wait until(clk'event and clk = '1');
+		wait until(clk'event and clk = '1');
 		file_close(input);
-		file_close(output);
+		assert false report "end of simulation" severity failure;
+		--file_close(output);
 		--writeline(output, outline);
-		wait;
+		--wait for 1ms;
+		--assert false report "end of simulation" severity failure;
 	end process;
+	
+	--assert false report "end of simulation" severity failure;
                                           
 END HadamardCombinational_arch;

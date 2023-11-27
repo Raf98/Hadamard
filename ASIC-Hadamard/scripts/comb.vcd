@@ -1,0 +1,2508 @@
+$date
+    Nov 27, 2023  03:50:47
+$end
+$version
+    TOOL:	ncsim(64)	09.20-p007
+$end
+$timescale
+    1 fs
+$end
+
+$scope module HadamardCombinational_vhd_tst $end
+
+$scope module comb $end
+$var wire      1 !    a0 [8] $end
+$var wire      1 "    a0 [7] $end
+$var wire      1 #    a0 [6] $end
+$var wire      1 $    a0 [5] $end
+$var wire      1 %    a0 [4] $end
+$var wire      1 &    a0 [3] $end
+$var wire      1 '    a0 [2] $end
+$var wire      1 (    a0 [1] $end
+$var wire      1 )    a0 [0] $end
+$var wire      1 *    a1 [8] $end
+$var wire      1 +    a1 [7] $end
+$var wire      1 ,    a1 [6] $end
+$var wire      1 -    a1 [5] $end
+$var wire      1 .    a1 [4] $end
+$var wire      1 /    a1 [3] $end
+$var wire      1 0    a1 [2] $end
+$var wire      1 1    a1 [1] $end
+$var wire      1 2    a1 [0] $end
+$var wire      1 3    a2 [8] $end
+$var wire      1 4    a2 [7] $end
+$var wire      1 5    a2 [6] $end
+$var wire      1 6    a2 [5] $end
+$var wire      1 7    a2 [4] $end
+$var wire      1 8    a2 [3] $end
+$var wire      1 9    a2 [2] $end
+$var wire      1 :    a2 [1] $end
+$var wire      1 ;    a2 [0] $end
+$var wire      1 <    a3 [8] $end
+$var wire      1 =    a3 [7] $end
+$var wire      1 >    a3 [6] $end
+$var wire      1 ?    a3 [5] $end
+$var wire      1 @    a3 [4] $end
+$var wire      1 A    a3 [3] $end
+$var wire      1 B    a3 [2] $end
+$var wire      1 C    a3 [1] $end
+$var wire      1 D    a3 [0] $end
+$var wire      1 E    b0 [9] $end
+$var wire      1 F    b0 [8] $end
+$var wire      1 G    b0 [7] $end
+$var wire      1 H    b0 [6] $end
+$var wire      1 I    b0 [5] $end
+$var wire      1 J    b0 [4] $end
+$var wire      1 K    b0 [3] $end
+$var wire      1 L    b0 [2] $end
+$var wire      1 M    b0 [1] $end
+$var wire      1 N    b0 [0] $end
+$var wire      1 O    b1 [9] $end
+$var wire      1 P    b1 [8] $end
+$var wire      1 Q    b1 [7] $end
+$var wire      1 R    b1 [6] $end
+$var wire      1 S    b1 [5] $end
+$var wire      1 T    b1 [4] $end
+$var wire      1 U    b1 [3] $end
+$var wire      1 V    b1 [2] $end
+$var wire      1 W    b1 [1] $end
+$var wire      1 X    b1 [0] $end
+$var wire      1 Y    b2 [9] $end
+$var wire      1 Z    b2 [8] $end
+$var wire      1 [    b2 [7] $end
+$var wire      1 \    b2 [6] $end
+$var wire      1 ]    b2 [5] $end
+$var wire      1 ^    b2 [4] $end
+$var wire      1 _    b2 [3] $end
+$var wire      1 `    b2 [2] $end
+$var wire      1 a    b2 [1] $end
+$var wire      1 b    b2 [0] $end
+$var wire      1 c    b3 [9] $end
+$var wire      1 d    b3 [8] $end
+$var wire      1 e    b3 [7] $end
+$var wire      1 f    b3 [6] $end
+$var wire      1 g    b3 [5] $end
+$var wire      1 h    b3 [4] $end
+$var wire      1 i    b3 [3] $end
+$var wire      1 j    b3 [2] $end
+$var wire      1 k    b3 [1] $end
+$var wire      1 l    b3 [0] $end
+$var wire      1 m    c0 [9] $end
+$var wire      1 n    c0 [8] $end
+$var wire      1 o    c0 [7] $end
+$var wire      1 p    c0 [6] $end
+$var wire      1 q    c0 [5] $end
+$var wire      1 r    c0 [4] $end
+$var wire      1 s    c0 [3] $end
+$var wire      1 t    c0 [2] $end
+$var wire      1 u    c0 [1] $end
+$var wire      1 v    c0 [0] $end
+$var wire      1 w    c1 [9] $end
+$var wire      1 x    c1 [8] $end
+$var wire      1 y    c1 [7] $end
+$var wire      1 z    c1 [6] $end
+$var wire      1 {    c1 [5] $end
+$var wire      1 |    c1 [4] $end
+$var wire      1 }    c1 [3] $end
+$var wire      1 ~    c1 [2] $end
+$var wire      1 !!   c1 [1] $end
+$var wire      1 "!   c1 [0] $end
+$var wire      1 #!   c2 [9] $end
+$var wire      1 $!   c2 [8] $end
+$var wire      1 %!   c2 [7] $end
+$var wire      1 &!   c2 [6] $end
+$var wire      1 '!   c2 [5] $end
+$var wire      1 (!   c2 [4] $end
+$var wire      1 )!   c2 [3] $end
+$var wire      1 *!   c2 [2] $end
+$var wire      1 +!   c2 [1] $end
+$var wire      1 ,!   c2 [0] $end
+$var wire      1 -!   c3 [9] $end
+$var wire      1 .!   c3 [8] $end
+$var wire      1 /!   c3 [7] $end
+$var wire      1 0!   c3 [6] $end
+$var wire      1 1!   c3 [5] $end
+$var wire      1 2!   c3 [4] $end
+$var wire      1 3!   c3 [3] $end
+$var wire      1 4!   c3 [2] $end
+$var wire      1 5!   c3 [1] $end
+$var wire      1 6!   c3 [0] $end
+$var wire      1 7!   carry [8] $end
+$var wire      1 8!   carry [7] $end
+$var wire      1 9!   carry [6] $end
+$var wire      1 :!   carry [5] $end
+$var wire      1 ;!   carry [4] $end
+$var wire      1 <!   carry [3] $end
+$var wire      1 =!   carry [2] $end
+$var wire      1 >!   carry [1] $end
+$var wire      1 ?!   carry [0] $end
+$var wire      8 @!   bOp [7:0] $end
+$var wire      1 A!   w0 [7] $end
+$var wire      1 B!   w0 [6] $end
+$var wire      1 C!   w0 [5] $end
+$var wire      1 D!   w0 [4] $end
+$var wire      1 E!   w0 [3] $end
+$var wire      1 F!   w0 [2] $end
+$var wire      1 G!   w0 [1] $end
+$var wire      1 H!   w0 [0] $end
+$var wire      1 I!   w1 [7] $end
+$var wire      1 J!   w1 [6] $end
+$var wire      1 K!   w1 [5] $end
+$var wire      1 L!   w1 [4] $end
+$var wire      1 M!   w1 [3] $end
+$var wire      1 N!   w1 [2] $end
+$var wire      1 O!   w1 [1] $end
+$var wire      1 P!   w1 [0] $end
+$var wire      8 Q!   w2 [7:0] $end
+$var wire      8 R!   w3 [7:0] $end
+$var wire      9 S!   x0 [8:0] $end
+$var wire      9 T!   x1 [8:0] $end
+$var wire      9 U!   x2 [8:0] $end
+$var wire      9 V!   x3 [8:0] $end
+$var wire     10 W!   y0 [9:0] $end
+$var wire     10 X!   y1 [9:0] $end
+$var wire     10 Y!   y2 [9:0] $end
+$var wire     10 Z!   y3 [9:0] $end
+$var wire      9 [!   s0 [8:0] $end
+$var wire      9 \!   s1 [8:0] $end
+$var wire      9 ]!   s2 [8:0] $end
+$var wire      9 ^!   s3 [8:0] $end
+
+$scope module Adder0 $end
+$var wire      1 _!   c [8] $end
+$var wire      1 `!   c [7] $end
+$var wire      1 a!   c [6] $end
+$var wire      1 b!   c [5] $end
+$var wire      1 c!   c [4] $end
+$var wire      1 d!   c [3] $end
+$var wire      1 e!   c [2] $end
+$var wire      1 f!   c [1] $end
+$var wire      1 g!   c [0] $end
+$var wire      1 h!   bOp [7] $end
+$var wire      1 i!   bOp [6] $end
+$var wire      1 j!   bOp [5] $end
+$var wire      1 k!   bOp [4] $end
+$var wire      1 l!   bOp [3] $end
+$var wire      1 m!   bOp [2] $end
+$var wire      1 n!   bOp [1] $end
+$var wire      1 o!   bOp [0] $end
+$var wire      1 p!   x [7] $end
+$var wire      1 q!   x [6] $end
+$var wire      1 r!   x [5] $end
+$var wire      1 s!   x [4] $end
+$var wire      1 t!   x [3] $end
+$var wire      1 u!   x [2] $end
+$var wire      1 v!   x [1] $end
+$var wire      1 w!   x [0] $end
+$var wire      1 x!   over  $end
+$var wire      1 y!   c0  $end
+$var wire      1 A!   a [7] $end
+$var wire      1 B!   a [6] $end
+$var wire      1 C!   a [5] $end
+$var wire      1 D!   a [4] $end
+$var wire      1 E!   a [3] $end
+$var wire      1 F!   a [2] $end
+$var wire      1 G!   a [1] $end
+$var wire      1 H!   a [0] $end
+$var wire      8 Q!   b [7:0] $end
+$var wire      1 z!   op  $end
+$var wire      1 "    s [7] $end
+$var wire      1 #    s [6] $end
+$var wire      1 $    s [5] $end
+$var wire      1 %    s [4] $end
+$var wire      1 &    s [3] $end
+$var wire      1 '    s [2] $end
+$var wire      1 (    s [1] $end
+$var wire      1 )    s [0] $end
+$var wire      1 >!   cLast  $end
+
+$scope begin generateAdders(0) $end
+
+$scope module FA $end
+$var wire      1 g!   cin  $end
+$var wire      1 H!   a  $end
+$var wire      1 o!   b  $end
+$var wire      1 w!   s  $end
+$var wire      1 f!   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(1) $end
+
+$scope module FA $end
+$var wire      1 f!   cin  $end
+$var wire      1 G!   a  $end
+$var wire      1 n!   b  $end
+$var wire      1 v!   s  $end
+$var wire      1 e!   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(2) $end
+
+$scope module FA $end
+$var wire      1 e!   cin  $end
+$var wire      1 F!   a  $end
+$var wire      1 m!   b  $end
+$var wire      1 u!   s  $end
+$var wire      1 d!   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(3) $end
+
+$scope module FA $end
+$var wire      1 d!   cin  $end
+$var wire      1 E!   a  $end
+$var wire      1 l!   b  $end
+$var wire      1 t!   s  $end
+$var wire      1 c!   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(4) $end
+
+$scope module FA $end
+$var wire      1 c!   cin  $end
+$var wire      1 D!   a  $end
+$var wire      1 k!   b  $end
+$var wire      1 s!   s  $end
+$var wire      1 b!   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(5) $end
+
+$scope module FA $end
+$var wire      1 b!   cin  $end
+$var wire      1 C!   a  $end
+$var wire      1 j!   b  $end
+$var wire      1 r!   s  $end
+$var wire      1 a!   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(6) $end
+
+$scope module FA $end
+$var wire      1 a!   cin  $end
+$var wire      1 B!   a  $end
+$var wire      1 i!   b  $end
+$var wire      1 q!   s  $end
+$var wire      1 `!   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(7) $end
+
+$scope module FA $end
+$var wire      1 `!   cin  $end
+$var wire      1 A!   a  $end
+$var wire      1 h!   b  $end
+$var wire      1 p!   s  $end
+$var wire      1 _!   cout  $end
+$upscope $end
+
+$upscope $end
+
+$upscope $end
+
+
+$scope module Adder1 $end
+$var wire      1 {!   c [8] $end
+$var wire      1 |!   c [7] $end
+$var wire      1 }!   c [6] $end
+$var wire      1 ~!   c [5] $end
+$var wire      1 !"   c [4] $end
+$var wire      1 ""   c [3] $end
+$var wire      1 #"   c [2] $end
+$var wire      1 $"   c [1] $end
+$var wire      1 %"   c [0] $end
+$var wire      1 &"   bOp [7] $end
+$var wire      1 '"   bOp [6] $end
+$var wire      1 ("   bOp [5] $end
+$var wire      1 )"   bOp [4] $end
+$var wire      1 *"   bOp [3] $end
+$var wire      1 +"   bOp [2] $end
+$var wire      1 ,"   bOp [1] $end
+$var wire      1 -"   bOp [0] $end
+$var wire      1 ."   x [7] $end
+$var wire      1 /"   x [6] $end
+$var wire      1 0"   x [5] $end
+$var wire      1 1"   x [4] $end
+$var wire      1 2"   x [3] $end
+$var wire      1 3"   x [2] $end
+$var wire      1 4"   x [1] $end
+$var wire      1 5"   x [0] $end
+$var wire      1 6"   over  $end
+$var wire      1 7"   c0  $end
+$var wire      1 I!   a [7] $end
+$var wire      1 J!   a [6] $end
+$var wire      1 K!   a [5] $end
+$var wire      1 L!   a [4] $end
+$var wire      1 M!   a [3] $end
+$var wire      1 N!   a [2] $end
+$var wire      1 O!   a [1] $end
+$var wire      1 P!   a [0] $end
+$var wire      8 R!   b [7:0] $end
+$var wire      1 8"   op  $end
+$var wire      1 +    s [7] $end
+$var wire      1 ,    s [6] $end
+$var wire      1 -    s [5] $end
+$var wire      1 .    s [4] $end
+$var wire      1 /    s [3] $end
+$var wire      1 0    s [2] $end
+$var wire      1 1    s [1] $end
+$var wire      1 2    s [0] $end
+$var wire      1 =!   cLast  $end
+
+$scope begin generateAdders(0) $end
+
+$scope module FA $end
+$var wire      1 %"   cin  $end
+$var wire      1 P!   a  $end
+$var wire      1 -"   b  $end
+$var wire      1 5"   s  $end
+$var wire      1 $"   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(1) $end
+
+$scope module FA $end
+$var wire      1 $"   cin  $end
+$var wire      1 O!   a  $end
+$var wire      1 ,"   b  $end
+$var wire      1 4"   s  $end
+$var wire      1 #"   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(2) $end
+
+$scope module FA $end
+$var wire      1 #"   cin  $end
+$var wire      1 N!   a  $end
+$var wire      1 +"   b  $end
+$var wire      1 3"   s  $end
+$var wire      1 ""   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(3) $end
+
+$scope module FA $end
+$var wire      1 ""   cin  $end
+$var wire      1 M!   a  $end
+$var wire      1 *"   b  $end
+$var wire      1 2"   s  $end
+$var wire      1 !"   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(4) $end
+
+$scope module FA $end
+$var wire      1 !"   cin  $end
+$var wire      1 L!   a  $end
+$var wire      1 )"   b  $end
+$var wire      1 1"   s  $end
+$var wire      1 ~!   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(5) $end
+
+$scope module FA $end
+$var wire      1 ~!   cin  $end
+$var wire      1 K!   a  $end
+$var wire      1 ("   b  $end
+$var wire      1 0"   s  $end
+$var wire      1 }!   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(6) $end
+
+$scope module FA $end
+$var wire      1 }!   cin  $end
+$var wire      1 J!   a  $end
+$var wire      1 '"   b  $end
+$var wire      1 /"   s  $end
+$var wire      1 |!   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(7) $end
+
+$scope module FA $end
+$var wire      1 |!   cin  $end
+$var wire      1 I!   a  $end
+$var wire      1 &"   b  $end
+$var wire      1 ."   s  $end
+$var wire      1 {!   cout  $end
+$upscope $end
+
+$upscope $end
+
+$upscope $end
+
+
+$scope module Sub0 $end
+$var wire      1 9"   c [8] $end
+$var wire      1 :"   c [7] $end
+$var wire      1 ;"   c [6] $end
+$var wire      1 <"   c [5] $end
+$var wire      1 ="   c [4] $end
+$var wire      1 >"   c [3] $end
+$var wire      1 ?"   c [2] $end
+$var wire      1 @"   c [1] $end
+$var wire      1 A"   c [0] $end
+$var wire      1 B"   bOp [7] $end
+$var wire      1 C"   bOp [6] $end
+$var wire      1 D"   bOp [5] $end
+$var wire      1 E"   bOp [4] $end
+$var wire      1 F"   bOp [3] $end
+$var wire      1 G"   bOp [2] $end
+$var wire      1 H"   bOp [1] $end
+$var wire      1 I"   bOp [0] $end
+$var wire      1 J"   x [7] $end
+$var wire      1 K"   x [6] $end
+$var wire      1 L"   x [5] $end
+$var wire      1 M"   x [4] $end
+$var wire      1 N"   x [3] $end
+$var wire      1 O"   x [2] $end
+$var wire      1 P"   x [1] $end
+$var wire      1 Q"   x [0] $end
+$var wire      1 R"   over  $end
+$var wire      1 S"   c0  $end
+$var wire      1 A!   a [7] $end
+$var wire      1 B!   a [6] $end
+$var wire      1 C!   a [5] $end
+$var wire      1 D!   a [4] $end
+$var wire      1 E!   a [3] $end
+$var wire      1 F!   a [2] $end
+$var wire      1 G!   a [1] $end
+$var wire      1 H!   a [0] $end
+$var wire      8 Q!   b [7:0] $end
+$var wire      1 T"   op  $end
+$var wire      1 4    s [7] $end
+$var wire      1 5    s [6] $end
+$var wire      1 6    s [5] $end
+$var wire      1 7    s [4] $end
+$var wire      1 8    s [3] $end
+$var wire      1 9    s [2] $end
+$var wire      1 :    s [1] $end
+$var wire      1 ;    s [0] $end
+$var wire      1 <!   cLast  $end
+
+$scope begin generateAdders(0) $end
+
+$scope module FA $end
+$var wire      1 A"   cin  $end
+$var wire      1 H!   a  $end
+$var wire      1 I"   b  $end
+$var wire      1 Q"   s  $end
+$var wire      1 @"   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(1) $end
+
+$scope module FA $end
+$var wire      1 @"   cin  $end
+$var wire      1 G!   a  $end
+$var wire      1 H"   b  $end
+$var wire      1 P"   s  $end
+$var wire      1 ?"   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(2) $end
+
+$scope module FA $end
+$var wire      1 ?"   cin  $end
+$var wire      1 F!   a  $end
+$var wire      1 G"   b  $end
+$var wire      1 O"   s  $end
+$var wire      1 >"   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(3) $end
+
+$scope module FA $end
+$var wire      1 >"   cin  $end
+$var wire      1 E!   a  $end
+$var wire      1 F"   b  $end
+$var wire      1 N"   s  $end
+$var wire      1 ="   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(4) $end
+
+$scope module FA $end
+$var wire      1 ="   cin  $end
+$var wire      1 D!   a  $end
+$var wire      1 E"   b  $end
+$var wire      1 M"   s  $end
+$var wire      1 <"   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(5) $end
+
+$scope module FA $end
+$var wire      1 <"   cin  $end
+$var wire      1 C!   a  $end
+$var wire      1 D"   b  $end
+$var wire      1 L"   s  $end
+$var wire      1 ;"   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(6) $end
+
+$scope module FA $end
+$var wire      1 ;"   cin  $end
+$var wire      1 B!   a  $end
+$var wire      1 C"   b  $end
+$var wire      1 K"   s  $end
+$var wire      1 :"   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(7) $end
+
+$scope module FA $end
+$var wire      1 :"   cin  $end
+$var wire      1 A!   a  $end
+$var wire      1 B"   b  $end
+$var wire      1 J"   s  $end
+$var wire      1 9"   cout  $end
+$upscope $end
+
+$upscope $end
+
+$upscope $end
+
+
+$scope module Sub1 $end
+$var wire      1 U"   c [8] $end
+$var wire      1 V"   c [7] $end
+$var wire      1 W"   c [6] $end
+$var wire      1 X"   c [5] $end
+$var wire      1 Y"   c [4] $end
+$var wire      1 Z"   c [3] $end
+$var wire      1 ["   c [2] $end
+$var wire      1 \"   c [1] $end
+$var wire      1 ]"   c [0] $end
+$var wire      1 ^"   bOp [7] $end
+$var wire      1 _"   bOp [6] $end
+$var wire      1 `"   bOp [5] $end
+$var wire      1 a"   bOp [4] $end
+$var wire      1 b"   bOp [3] $end
+$var wire      1 c"   bOp [2] $end
+$var wire      1 d"   bOp [1] $end
+$var wire      1 e"   bOp [0] $end
+$var wire      1 f"   x [7] $end
+$var wire      1 g"   x [6] $end
+$var wire      1 h"   x [5] $end
+$var wire      1 i"   x [4] $end
+$var wire      1 j"   x [3] $end
+$var wire      1 k"   x [2] $end
+$var wire      1 l"   x [1] $end
+$var wire      1 m"   x [0] $end
+$var wire      1 n"   over  $end
+$var wire      1 o"   c0  $end
+$var wire      1 I!   a [7] $end
+$var wire      1 J!   a [6] $end
+$var wire      1 K!   a [5] $end
+$var wire      1 L!   a [4] $end
+$var wire      1 M!   a [3] $end
+$var wire      1 N!   a [2] $end
+$var wire      1 O!   a [1] $end
+$var wire      1 P!   a [0] $end
+$var wire      8 R!   b [7:0] $end
+$var wire      1 p"   op  $end
+$var wire      1 =    s [7] $end
+$var wire      1 >    s [6] $end
+$var wire      1 ?    s [5] $end
+$var wire      1 @    s [4] $end
+$var wire      1 A    s [3] $end
+$var wire      1 B    s [2] $end
+$var wire      1 C    s [1] $end
+$var wire      1 D    s [0] $end
+$var wire      1 ;!   cLast  $end
+
+$scope begin generateAdders(0) $end
+
+$scope module FA $end
+$var wire      1 ]"   cin  $end
+$var wire      1 P!   a  $end
+$var wire      1 e"   b  $end
+$var wire      1 m"   s  $end
+$var wire      1 \"   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(1) $end
+
+$scope module FA $end
+$var wire      1 \"   cin  $end
+$var wire      1 O!   a  $end
+$var wire      1 d"   b  $end
+$var wire      1 l"   s  $end
+$var wire      1 ["   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(2) $end
+
+$scope module FA $end
+$var wire      1 ["   cin  $end
+$var wire      1 N!   a  $end
+$var wire      1 c"   b  $end
+$var wire      1 k"   s  $end
+$var wire      1 Z"   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(3) $end
+
+$scope module FA $end
+$var wire      1 Z"   cin  $end
+$var wire      1 M!   a  $end
+$var wire      1 b"   b  $end
+$var wire      1 j"   s  $end
+$var wire      1 Y"   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(4) $end
+
+$scope module FA $end
+$var wire      1 Y"   cin  $end
+$var wire      1 L!   a  $end
+$var wire      1 a"   b  $end
+$var wire      1 i"   s  $end
+$var wire      1 X"   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(5) $end
+
+$scope module FA $end
+$var wire      1 X"   cin  $end
+$var wire      1 K!   a  $end
+$var wire      1 `"   b  $end
+$var wire      1 h"   s  $end
+$var wire      1 W"   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(6) $end
+
+$scope module FA $end
+$var wire      1 W"   cin  $end
+$var wire      1 J!   a  $end
+$var wire      1 _"   b  $end
+$var wire      1 g"   s  $end
+$var wire      1 V"   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(7) $end
+
+$scope module FA $end
+$var wire      1 V"   cin  $end
+$var wire      1 I!   a  $end
+$var wire      1 ^"   b  $end
+$var wire      1 f"   s  $end
+$var wire      1 U"   cout  $end
+$upscope $end
+
+$upscope $end
+
+$upscope $end
+
+
+$scope module Adder2 $end
+$var wire      1 q"   c [9] $end
+$var wire      1 r"   c [8] $end
+$var wire      1 s"   c [7] $end
+$var wire      1 t"   c [6] $end
+$var wire      1 u"   c [5] $end
+$var wire      1 v"   c [4] $end
+$var wire      1 w"   c [3] $end
+$var wire      1 x"   c [2] $end
+$var wire      1 y"   c [1] $end
+$var wire      1 z"   c [0] $end
+$var wire      1 {"   bOp [8] $end
+$var wire      1 |"   bOp [7] $end
+$var wire      1 }"   bOp [6] $end
+$var wire      1 ~"   bOp [5] $end
+$var wire      1 !#   bOp [4] $end
+$var wire      1 "#   bOp [3] $end
+$var wire      1 ##   bOp [2] $end
+$var wire      1 $#   bOp [1] $end
+$var wire      1 %#   bOp [0] $end
+$var wire      1 &#   x [8] $end
+$var wire      1 '#   x [7] $end
+$var wire      1 (#   x [6] $end
+$var wire      1 )#   x [5] $end
+$var wire      1 *#   x [4] $end
+$var wire      1 +#   x [3] $end
+$var wire      1 ,#   x [2] $end
+$var wire      1 -#   x [1] $end
+$var wire      1 .#   x [0] $end
+$var wire      1 /#   over  $end
+$var wire      1 0#   c0  $end
+$var wire      1 !    a [8] $end
+$var wire      1 "    a [7] $end
+$var wire      1 #    a [6] $end
+$var wire      1 $    a [5] $end
+$var wire      1 %    a [4] $end
+$var wire      1 &    a [3] $end
+$var wire      1 '    a [2] $end
+$var wire      1 (    a [1] $end
+$var wire      1 )    a [0] $end
+$var wire      1 *    b [8] $end
+$var wire      1 +    b [7] $end
+$var wire      1 ,    b [6] $end
+$var wire      1 -    b [5] $end
+$var wire      1 .    b [4] $end
+$var wire      1 /    b [3] $end
+$var wire      1 0    b [2] $end
+$var wire      1 1    b [1] $end
+$var wire      1 2    b [0] $end
+$var wire      1 1#   op  $end
+$var wire      1 F    s [8] $end
+$var wire      1 G    s [7] $end
+$var wire      1 H    s [6] $end
+$var wire      1 I    s [5] $end
+$var wire      1 J    s [4] $end
+$var wire      1 K    s [3] $end
+$var wire      1 L    s [2] $end
+$var wire      1 M    s [1] $end
+$var wire      1 N    s [0] $end
+$var wire      1 :!   cLast  $end
+
+$scope begin generateAdders(0) $end
+
+$scope module FA $end
+$var wire      1 z"   cin  $end
+$var wire      1 )    a  $end
+$var wire      1 %#   b  $end
+$var wire      1 .#   s  $end
+$var wire      1 y"   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(1) $end
+
+$scope module FA $end
+$var wire      1 y"   cin  $end
+$var wire      1 (    a  $end
+$var wire      1 $#   b  $end
+$var wire      1 -#   s  $end
+$var wire      1 x"   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(2) $end
+
+$scope module FA $end
+$var wire      1 x"   cin  $end
+$var wire      1 '    a  $end
+$var wire      1 ##   b  $end
+$var wire      1 ,#   s  $end
+$var wire      1 w"   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(3) $end
+
+$scope module FA $end
+$var wire      1 w"   cin  $end
+$var wire      1 &    a  $end
+$var wire      1 "#   b  $end
+$var wire      1 +#   s  $end
+$var wire      1 v"   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(4) $end
+
+$scope module FA $end
+$var wire      1 v"   cin  $end
+$var wire      1 %    a  $end
+$var wire      1 !#   b  $end
+$var wire      1 *#   s  $end
+$var wire      1 u"   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(5) $end
+
+$scope module FA $end
+$var wire      1 u"   cin  $end
+$var wire      1 $    a  $end
+$var wire      1 ~"   b  $end
+$var wire      1 )#   s  $end
+$var wire      1 t"   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(6) $end
+
+$scope module FA $end
+$var wire      1 t"   cin  $end
+$var wire      1 #    a  $end
+$var wire      1 }"   b  $end
+$var wire      1 (#   s  $end
+$var wire      1 s"   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(7) $end
+
+$scope module FA $end
+$var wire      1 s"   cin  $end
+$var wire      1 "    a  $end
+$var wire      1 |"   b  $end
+$var wire      1 '#   s  $end
+$var wire      1 r"   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(8) $end
+
+$scope module FA $end
+$var wire      1 r"   cin  $end
+$var wire      1 !    a  $end
+$var wire      1 {"   b  $end
+$var wire      1 &#   s  $end
+$var wire      1 q"   cout  $end
+$upscope $end
+
+$upscope $end
+
+$upscope $end
+
+
+$scope module Sub2 $end
+$var wire      1 2#   c [9] $end
+$var wire      1 3#   c [8] $end
+$var wire      1 4#   c [7] $end
+$var wire      1 5#   c [6] $end
+$var wire      1 6#   c [5] $end
+$var wire      1 7#   c [4] $end
+$var wire      1 8#   c [3] $end
+$var wire      1 9#   c [2] $end
+$var wire      1 :#   c [1] $end
+$var wire      1 ;#   c [0] $end
+$var wire      1 <#   bOp [8] $end
+$var wire      1 =#   bOp [7] $end
+$var wire      1 >#   bOp [6] $end
+$var wire      1 ?#   bOp [5] $end
+$var wire      1 @#   bOp [4] $end
+$var wire      1 A#   bOp [3] $end
+$var wire      1 B#   bOp [2] $end
+$var wire      1 C#   bOp [1] $end
+$var wire      1 D#   bOp [0] $end
+$var wire      1 E#   x [8] $end
+$var wire      1 F#   x [7] $end
+$var wire      1 G#   x [6] $end
+$var wire      1 H#   x [5] $end
+$var wire      1 I#   x [4] $end
+$var wire      1 J#   x [3] $end
+$var wire      1 K#   x [2] $end
+$var wire      1 L#   x [1] $end
+$var wire      1 M#   x [0] $end
+$var wire      1 N#   over  $end
+$var wire      1 O#   c0  $end
+$var wire      1 !    a [8] $end
+$var wire      1 "    a [7] $end
+$var wire      1 #    a [6] $end
+$var wire      1 $    a [5] $end
+$var wire      1 %    a [4] $end
+$var wire      1 &    a [3] $end
+$var wire      1 '    a [2] $end
+$var wire      1 (    a [1] $end
+$var wire      1 )    a [0] $end
+$var wire      1 *    b [8] $end
+$var wire      1 +    b [7] $end
+$var wire      1 ,    b [6] $end
+$var wire      1 -    b [5] $end
+$var wire      1 .    b [4] $end
+$var wire      1 /    b [3] $end
+$var wire      1 0    b [2] $end
+$var wire      1 1    b [1] $end
+$var wire      1 2    b [0] $end
+$var wire      1 P#   op  $end
+$var wire      1 P    s [8] $end
+$var wire      1 Q    s [7] $end
+$var wire      1 R    s [6] $end
+$var wire      1 S    s [5] $end
+$var wire      1 T    s [4] $end
+$var wire      1 U    s [3] $end
+$var wire      1 V    s [2] $end
+$var wire      1 W    s [1] $end
+$var wire      1 X    s [0] $end
+$var wire      1 9!   cLast  $end
+
+$scope begin generateAdders(0) $end
+
+$scope module FA $end
+$var wire      1 ;#   cin  $end
+$var wire      1 )    a  $end
+$var wire      1 D#   b  $end
+$var wire      1 M#   s  $end
+$var wire      1 :#   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(1) $end
+
+$scope module FA $end
+$var wire      1 :#   cin  $end
+$var wire      1 (    a  $end
+$var wire      1 C#   b  $end
+$var wire      1 L#   s  $end
+$var wire      1 9#   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(2) $end
+
+$scope module FA $end
+$var wire      1 9#   cin  $end
+$var wire      1 '    a  $end
+$var wire      1 B#   b  $end
+$var wire      1 K#   s  $end
+$var wire      1 8#   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(3) $end
+
+$scope module FA $end
+$var wire      1 8#   cin  $end
+$var wire      1 &    a  $end
+$var wire      1 A#   b  $end
+$var wire      1 J#   s  $end
+$var wire      1 7#   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(4) $end
+
+$scope module FA $end
+$var wire      1 7#   cin  $end
+$var wire      1 %    a  $end
+$var wire      1 @#   b  $end
+$var wire      1 I#   s  $end
+$var wire      1 6#   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(5) $end
+
+$scope module FA $end
+$var wire      1 6#   cin  $end
+$var wire      1 $    a  $end
+$var wire      1 ?#   b  $end
+$var wire      1 H#   s  $end
+$var wire      1 5#   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(6) $end
+
+$scope module FA $end
+$var wire      1 5#   cin  $end
+$var wire      1 #    a  $end
+$var wire      1 >#   b  $end
+$var wire      1 G#   s  $end
+$var wire      1 4#   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(7) $end
+
+$scope module FA $end
+$var wire      1 4#   cin  $end
+$var wire      1 "    a  $end
+$var wire      1 =#   b  $end
+$var wire      1 F#   s  $end
+$var wire      1 3#   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(8) $end
+
+$scope module FA $end
+$var wire      1 3#   cin  $end
+$var wire      1 !    a  $end
+$var wire      1 <#   b  $end
+$var wire      1 E#   s  $end
+$var wire      1 2#   cout  $end
+$upscope $end
+
+$upscope $end
+
+$upscope $end
+
+
+$scope module Adder3 $end
+$var wire      1 Q#   c [9] $end
+$var wire      1 R#   c [8] $end
+$var wire      1 S#   c [7] $end
+$var wire      1 T#   c [6] $end
+$var wire      1 U#   c [5] $end
+$var wire      1 V#   c [4] $end
+$var wire      1 W#   c [3] $end
+$var wire      1 X#   c [2] $end
+$var wire      1 Y#   c [1] $end
+$var wire      1 Z#   c [0] $end
+$var wire      1 [#   bOp [8] $end
+$var wire      1 \#   bOp [7] $end
+$var wire      1 ]#   bOp [6] $end
+$var wire      1 ^#   bOp [5] $end
+$var wire      1 _#   bOp [4] $end
+$var wire      1 `#   bOp [3] $end
+$var wire      1 a#   bOp [2] $end
+$var wire      1 b#   bOp [1] $end
+$var wire      1 c#   bOp [0] $end
+$var wire      1 d#   x [8] $end
+$var wire      1 e#   x [7] $end
+$var wire      1 f#   x [6] $end
+$var wire      1 g#   x [5] $end
+$var wire      1 h#   x [4] $end
+$var wire      1 i#   x [3] $end
+$var wire      1 j#   x [2] $end
+$var wire      1 k#   x [1] $end
+$var wire      1 l#   x [0] $end
+$var wire      1 m#   over  $end
+$var wire      1 n#   c0  $end
+$var wire      1 3    a [8] $end
+$var wire      1 4    a [7] $end
+$var wire      1 5    a [6] $end
+$var wire      1 6    a [5] $end
+$var wire      1 7    a [4] $end
+$var wire      1 8    a [3] $end
+$var wire      1 9    a [2] $end
+$var wire      1 :    a [1] $end
+$var wire      1 ;    a [0] $end
+$var wire      1 <    b [8] $end
+$var wire      1 =    b [7] $end
+$var wire      1 >    b [6] $end
+$var wire      1 ?    b [5] $end
+$var wire      1 @    b [4] $end
+$var wire      1 A    b [3] $end
+$var wire      1 B    b [2] $end
+$var wire      1 C    b [1] $end
+$var wire      1 D    b [0] $end
+$var wire      1 o#   op  $end
+$var wire      1 Z    s [8] $end
+$var wire      1 [    s [7] $end
+$var wire      1 \    s [6] $end
+$var wire      1 ]    s [5] $end
+$var wire      1 ^    s [4] $end
+$var wire      1 _    s [3] $end
+$var wire      1 `    s [2] $end
+$var wire      1 a    s [1] $end
+$var wire      1 b    s [0] $end
+$var wire      1 8!   cLast  $end
+
+$scope begin generateAdders(0) $end
+
+$scope module FA $end
+$var wire      1 Z#   cin  $end
+$var wire      1 ;    a  $end
+$var wire      1 c#   b  $end
+$var wire      1 l#   s  $end
+$var wire      1 Y#   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(1) $end
+
+$scope module FA $end
+$var wire      1 Y#   cin  $end
+$var wire      1 :    a  $end
+$var wire      1 b#   b  $end
+$var wire      1 k#   s  $end
+$var wire      1 X#   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(2) $end
+
+$scope module FA $end
+$var wire      1 X#   cin  $end
+$var wire      1 9    a  $end
+$var wire      1 a#   b  $end
+$var wire      1 j#   s  $end
+$var wire      1 W#   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(3) $end
+
+$scope module FA $end
+$var wire      1 W#   cin  $end
+$var wire      1 8    a  $end
+$var wire      1 `#   b  $end
+$var wire      1 i#   s  $end
+$var wire      1 V#   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(4) $end
+
+$scope module FA $end
+$var wire      1 V#   cin  $end
+$var wire      1 7    a  $end
+$var wire      1 _#   b  $end
+$var wire      1 h#   s  $end
+$var wire      1 U#   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(5) $end
+
+$scope module FA $end
+$var wire      1 U#   cin  $end
+$var wire      1 6    a  $end
+$var wire      1 ^#   b  $end
+$var wire      1 g#   s  $end
+$var wire      1 T#   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(6) $end
+
+$scope module FA $end
+$var wire      1 T#   cin  $end
+$var wire      1 5    a  $end
+$var wire      1 ]#   b  $end
+$var wire      1 f#   s  $end
+$var wire      1 S#   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(7) $end
+
+$scope module FA $end
+$var wire      1 S#   cin  $end
+$var wire      1 4    a  $end
+$var wire      1 \#   b  $end
+$var wire      1 e#   s  $end
+$var wire      1 R#   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(8) $end
+
+$scope module FA $end
+$var wire      1 R#   cin  $end
+$var wire      1 3    a  $end
+$var wire      1 [#   b  $end
+$var wire      1 d#   s  $end
+$var wire      1 Q#   cout  $end
+$upscope $end
+
+$upscope $end
+
+$upscope $end
+
+
+$scope module Sub3 $end
+$var wire      1 p#   c [9] $end
+$var wire      1 q#   c [8] $end
+$var wire      1 r#   c [7] $end
+$var wire      1 s#   c [6] $end
+$var wire      1 t#   c [5] $end
+$var wire      1 u#   c [4] $end
+$var wire      1 v#   c [3] $end
+$var wire      1 w#   c [2] $end
+$var wire      1 x#   c [1] $end
+$var wire      1 y#   c [0] $end
+$var wire      1 z#   bOp [8] $end
+$var wire      1 {#   bOp [7] $end
+$var wire      1 |#   bOp [6] $end
+$var wire      1 }#   bOp [5] $end
+$var wire      1 ~#   bOp [4] $end
+$var wire      1 !$   bOp [3] $end
+$var wire      1 "$   bOp [2] $end
+$var wire      1 #$   bOp [1] $end
+$var wire      1 $$   bOp [0] $end
+$var wire      1 %$   x [8] $end
+$var wire      1 &$   x [7] $end
+$var wire      1 '$   x [6] $end
+$var wire      1 ($   x [5] $end
+$var wire      1 )$   x [4] $end
+$var wire      1 *$   x [3] $end
+$var wire      1 +$   x [2] $end
+$var wire      1 ,$   x [1] $end
+$var wire      1 -$   x [0] $end
+$var wire      1 .$   over  $end
+$var wire      1 /$   c0  $end
+$var wire      1 3    a [8] $end
+$var wire      1 4    a [7] $end
+$var wire      1 5    a [6] $end
+$var wire      1 6    a [5] $end
+$var wire      1 7    a [4] $end
+$var wire      1 8    a [3] $end
+$var wire      1 9    a [2] $end
+$var wire      1 :    a [1] $end
+$var wire      1 ;    a [0] $end
+$var wire      1 <    b [8] $end
+$var wire      1 =    b [7] $end
+$var wire      1 >    b [6] $end
+$var wire      1 ?    b [5] $end
+$var wire      1 @    b [4] $end
+$var wire      1 A    b [3] $end
+$var wire      1 B    b [2] $end
+$var wire      1 C    b [1] $end
+$var wire      1 D    b [0] $end
+$var wire      1 0$   op  $end
+$var wire      1 d    s [8] $end
+$var wire      1 e    s [7] $end
+$var wire      1 f    s [6] $end
+$var wire      1 g    s [5] $end
+$var wire      1 h    s [4] $end
+$var wire      1 i    s [3] $end
+$var wire      1 j    s [2] $end
+$var wire      1 k    s [1] $end
+$var wire      1 l    s [0] $end
+$var wire      1 7!   cLast  $end
+
+$scope begin generateAdders(0) $end
+
+$scope module FA $end
+$var wire      1 y#   cin  $end
+$var wire      1 ;    a  $end
+$var wire      1 $$   b  $end
+$var wire      1 -$   s  $end
+$var wire      1 x#   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(1) $end
+
+$scope module FA $end
+$var wire      1 x#   cin  $end
+$var wire      1 :    a  $end
+$var wire      1 #$   b  $end
+$var wire      1 ,$   s  $end
+$var wire      1 w#   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(2) $end
+
+$scope module FA $end
+$var wire      1 w#   cin  $end
+$var wire      1 9    a  $end
+$var wire      1 "$   b  $end
+$var wire      1 +$   s  $end
+$var wire      1 v#   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(3) $end
+
+$scope module FA $end
+$var wire      1 v#   cin  $end
+$var wire      1 8    a  $end
+$var wire      1 !$   b  $end
+$var wire      1 *$   s  $end
+$var wire      1 u#   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(4) $end
+
+$scope module FA $end
+$var wire      1 u#   cin  $end
+$var wire      1 7    a  $end
+$var wire      1 ~#   b  $end
+$var wire      1 )$   s  $end
+$var wire      1 t#   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(5) $end
+
+$scope module FA $end
+$var wire      1 t#   cin  $end
+$var wire      1 6    a  $end
+$var wire      1 }#   b  $end
+$var wire      1 ($   s  $end
+$var wire      1 s#   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(6) $end
+
+$scope module FA $end
+$var wire      1 s#   cin  $end
+$var wire      1 5    a  $end
+$var wire      1 |#   b  $end
+$var wire      1 '$   s  $end
+$var wire      1 r#   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(7) $end
+
+$scope module FA $end
+$var wire      1 r#   cin  $end
+$var wire      1 4    a  $end
+$var wire      1 {#   b  $end
+$var wire      1 &$   s  $end
+$var wire      1 q#   cout  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateAdders(8) $end
+
+$scope module FA $end
+$var wire      1 q#   cin  $end
+$var wire      1 3    a  $end
+$var wire      1 z#   b  $end
+$var wire      1 %$   s  $end
+$var wire      1 p#   cout  $end
+$upscope $end
+
+$upscope $end
+
+$upscope $end
+
+
+$scope module SR0 $end
+$var wire      1 E    a [9] $end
+$var wire      1 F    a [8] $end
+$var wire      1 G    a [7] $end
+$var wire      1 H    a [6] $end
+$var wire      1 I    a [5] $end
+$var wire      1 J    a [4] $end
+$var wire      1 K    a [3] $end
+$var wire      1 L    a [2] $end
+$var wire      1 M    a [1] $end
+$var wire      1 N    a [0] $end
+$var wire      1 m    s [9] $end
+$var wire      1 n    s [8] $end
+$var wire      1 o    s [7] $end
+$var wire      1 p    s [6] $end
+$var wire      1 q    s [5] $end
+$var wire      1 r    s [4] $end
+$var wire      1 s    s [3] $end
+$var wire      1 t    s [2] $end
+$var wire      1 u    s [1] $end
+$var wire      1 v    s [0] $end
+
+$scope begin generateShifters(0) $end
+
+$scope module SR $end
+$var wire      1 M    a  $end
+$var wire      1 N    b  $end
+$var wire      1 1$   sel  $end
+$var wire      1 v    s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(1) $end
+
+$scope module SR $end
+$var wire      1 L    a  $end
+$var wire      1 M    b  $end
+$var wire      1 2$   sel  $end
+$var wire      1 u    s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(2) $end
+
+$scope module SR $end
+$var wire      1 K    a  $end
+$var wire      1 L    b  $end
+$var wire      1 3$   sel  $end
+$var wire      1 t    s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(3) $end
+
+$scope module SR $end
+$var wire      1 J    a  $end
+$var wire      1 K    b  $end
+$var wire      1 4$   sel  $end
+$var wire      1 s    s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(4) $end
+
+$scope module SR $end
+$var wire      1 I    a  $end
+$var wire      1 J    b  $end
+$var wire      1 5$   sel  $end
+$var wire      1 r    s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(5) $end
+
+$scope module SR $end
+$var wire      1 H    a  $end
+$var wire      1 I    b  $end
+$var wire      1 6$   sel  $end
+$var wire      1 q    s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(6) $end
+
+$scope module SR $end
+$var wire      1 G    a  $end
+$var wire      1 H    b  $end
+$var wire      1 7$   sel  $end
+$var wire      1 p    s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(7) $end
+
+$scope module SR $end
+$var wire      1 F    a  $end
+$var wire      1 G    b  $end
+$var wire      1 8$   sel  $end
+$var wire      1 o    s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(8) $end
+
+$scope module SR $end
+$var wire      1 E    a  $end
+$var wire      1 F    b  $end
+$var wire      1 9$   sel  $end
+$var wire      1 n    s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope module SR $end
+$var wire      1 :$   a  $end
+$var wire      1 E    b  $end
+$var wire      1 ;$   sel  $end
+$var wire      1 m    s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope module SR1 $end
+$var wire      1 O    a [9] $end
+$var wire      1 P    a [8] $end
+$var wire      1 Q    a [7] $end
+$var wire      1 R    a [6] $end
+$var wire      1 S    a [5] $end
+$var wire      1 T    a [4] $end
+$var wire      1 U    a [3] $end
+$var wire      1 V    a [2] $end
+$var wire      1 W    a [1] $end
+$var wire      1 X    a [0] $end
+$var wire      1 w    s [9] $end
+$var wire      1 x    s [8] $end
+$var wire      1 y    s [7] $end
+$var wire      1 z    s [6] $end
+$var wire      1 {    s [5] $end
+$var wire      1 |    s [4] $end
+$var wire      1 }    s [3] $end
+$var wire      1 ~    s [2] $end
+$var wire      1 !!   s [1] $end
+$var wire      1 "!   s [0] $end
+
+$scope begin generateShifters(0) $end
+
+$scope module SR $end
+$var wire      1 W    a  $end
+$var wire      1 X    b  $end
+$var wire      1 <$   sel  $end
+$var wire      1 "!   s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(1) $end
+
+$scope module SR $end
+$var wire      1 V    a  $end
+$var wire      1 W    b  $end
+$var wire      1 =$   sel  $end
+$var wire      1 !!   s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(2) $end
+
+$scope module SR $end
+$var wire      1 U    a  $end
+$var wire      1 V    b  $end
+$var wire      1 >$   sel  $end
+$var wire      1 ~    s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(3) $end
+
+$scope module SR $end
+$var wire      1 T    a  $end
+$var wire      1 U    b  $end
+$var wire      1 ?$   sel  $end
+$var wire      1 }    s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(4) $end
+
+$scope module SR $end
+$var wire      1 S    a  $end
+$var wire      1 T    b  $end
+$var wire      1 @$   sel  $end
+$var wire      1 |    s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(5) $end
+
+$scope module SR $end
+$var wire      1 R    a  $end
+$var wire      1 S    b  $end
+$var wire      1 A$   sel  $end
+$var wire      1 {    s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(6) $end
+
+$scope module SR $end
+$var wire      1 Q    a  $end
+$var wire      1 R    b  $end
+$var wire      1 B$   sel  $end
+$var wire      1 z    s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(7) $end
+
+$scope module SR $end
+$var wire      1 P    a  $end
+$var wire      1 Q    b  $end
+$var wire      1 C$   sel  $end
+$var wire      1 y    s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(8) $end
+
+$scope module SR $end
+$var wire      1 O    a  $end
+$var wire      1 P    b  $end
+$var wire      1 D$   sel  $end
+$var wire      1 x    s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope module SR $end
+$var wire      1 E$   a  $end
+$var wire      1 O    b  $end
+$var wire      1 F$   sel  $end
+$var wire      1 w    s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope module SR2 $end
+$var wire      1 Y    a [9] $end
+$var wire      1 Z    a [8] $end
+$var wire      1 [    a [7] $end
+$var wire      1 \    a [6] $end
+$var wire      1 ]    a [5] $end
+$var wire      1 ^    a [4] $end
+$var wire      1 _    a [3] $end
+$var wire      1 `    a [2] $end
+$var wire      1 a    a [1] $end
+$var wire      1 b    a [0] $end
+$var wire      1 #!   s [9] $end
+$var wire      1 $!   s [8] $end
+$var wire      1 %!   s [7] $end
+$var wire      1 &!   s [6] $end
+$var wire      1 '!   s [5] $end
+$var wire      1 (!   s [4] $end
+$var wire      1 )!   s [3] $end
+$var wire      1 *!   s [2] $end
+$var wire      1 +!   s [1] $end
+$var wire      1 ,!   s [0] $end
+
+$scope begin generateShifters(0) $end
+
+$scope module SR $end
+$var wire      1 a    a  $end
+$var wire      1 b    b  $end
+$var wire      1 G$   sel  $end
+$var wire      1 ,!   s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(1) $end
+
+$scope module SR $end
+$var wire      1 `    a  $end
+$var wire      1 a    b  $end
+$var wire      1 H$   sel  $end
+$var wire      1 +!   s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(2) $end
+
+$scope module SR $end
+$var wire      1 _    a  $end
+$var wire      1 `    b  $end
+$var wire      1 I$   sel  $end
+$var wire      1 *!   s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(3) $end
+
+$scope module SR $end
+$var wire      1 ^    a  $end
+$var wire      1 _    b  $end
+$var wire      1 J$   sel  $end
+$var wire      1 )!   s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(4) $end
+
+$scope module SR $end
+$var wire      1 ]    a  $end
+$var wire      1 ^    b  $end
+$var wire      1 K$   sel  $end
+$var wire      1 (!   s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(5) $end
+
+$scope module SR $end
+$var wire      1 \    a  $end
+$var wire      1 ]    b  $end
+$var wire      1 L$   sel  $end
+$var wire      1 '!   s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(6) $end
+
+$scope module SR $end
+$var wire      1 [    a  $end
+$var wire      1 \    b  $end
+$var wire      1 M$   sel  $end
+$var wire      1 &!   s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(7) $end
+
+$scope module SR $end
+$var wire      1 Z    a  $end
+$var wire      1 [    b  $end
+$var wire      1 N$   sel  $end
+$var wire      1 %!   s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(8) $end
+
+$scope module SR $end
+$var wire      1 Y    a  $end
+$var wire      1 Z    b  $end
+$var wire      1 O$   sel  $end
+$var wire      1 $!   s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope module SR $end
+$var wire      1 P$   a  $end
+$var wire      1 Y    b  $end
+$var wire      1 Q$   sel  $end
+$var wire      1 #!   s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope module SR3 $end
+$var wire      1 c    a [9] $end
+$var wire      1 d    a [8] $end
+$var wire      1 e    a [7] $end
+$var wire      1 f    a [6] $end
+$var wire      1 g    a [5] $end
+$var wire      1 h    a [4] $end
+$var wire      1 i    a [3] $end
+$var wire      1 j    a [2] $end
+$var wire      1 k    a [1] $end
+$var wire      1 l    a [0] $end
+$var wire      1 -!   s [9] $end
+$var wire      1 .!   s [8] $end
+$var wire      1 /!   s [7] $end
+$var wire      1 0!   s [6] $end
+$var wire      1 1!   s [5] $end
+$var wire      1 2!   s [4] $end
+$var wire      1 3!   s [3] $end
+$var wire      1 4!   s [2] $end
+$var wire      1 5!   s [1] $end
+$var wire      1 6!   s [0] $end
+
+$scope begin generateShifters(0) $end
+
+$scope module SR $end
+$var wire      1 k    a  $end
+$var wire      1 l    b  $end
+$var wire      1 R$   sel  $end
+$var wire      1 6!   s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(1) $end
+
+$scope module SR $end
+$var wire      1 j    a  $end
+$var wire      1 k    b  $end
+$var wire      1 S$   sel  $end
+$var wire      1 5!   s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(2) $end
+
+$scope module SR $end
+$var wire      1 i    a  $end
+$var wire      1 j    b  $end
+$var wire      1 T$   sel  $end
+$var wire      1 4!   s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(3) $end
+
+$scope module SR $end
+$var wire      1 h    a  $end
+$var wire      1 i    b  $end
+$var wire      1 U$   sel  $end
+$var wire      1 3!   s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(4) $end
+
+$scope module SR $end
+$var wire      1 g    a  $end
+$var wire      1 h    b  $end
+$var wire      1 V$   sel  $end
+$var wire      1 2!   s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(5) $end
+
+$scope module SR $end
+$var wire      1 f    a  $end
+$var wire      1 g    b  $end
+$var wire      1 W$   sel  $end
+$var wire      1 1!   s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(6) $end
+
+$scope module SR $end
+$var wire      1 e    a  $end
+$var wire      1 f    b  $end
+$var wire      1 X$   sel  $end
+$var wire      1 0!   s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(7) $end
+
+$scope module SR $end
+$var wire      1 d    a  $end
+$var wire      1 e    b  $end
+$var wire      1 Y$   sel  $end
+$var wire      1 /!   s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope begin generateShifters(8) $end
+
+$scope module SR $end
+$var wire      1 c    a  $end
+$var wire      1 d    b  $end
+$var wire      1 Z$   sel  $end
+$var wire      1 .!   s  $end
+$upscope $end
+
+$upscope $end
+
+
+$scope module SR $end
+$var wire      1 [$   a  $end
+$var wire      1 c    b  $end
+$var wire      1 \$   sel  $end
+$var wire      1 -!   s  $end
+$upscope $end
+
+$upscope $end
+
+$upscope $end
+
+$upscope $end
+
+$enddefinitions $end
+$dumpvars
+X!
+X"
+X#
+X$
+X%
+X&
+X'
+X(
+X)
+X*
+X+
+X,
+X-
+X.
+X/
+X0
+X1
+X2
+X3
+X4
+X5
+X6
+X7
+X8
+X9
+X:
+X;
+X<
+X=
+X>
+X?
+X@
+XA
+XB
+XC
+XD
+XE
+XF
+XG
+XH
+XI
+XJ
+XK
+XL
+XM
+XN
+XO
+XP
+XQ
+XR
+XS
+XT
+XU
+XV
+XW
+XX
+XY
+XZ
+X[
+X\
+X]
+X^
+X_
+X`
+Xa
+Xb
+Xc
+Xd
+Xe
+Xf
+Xg
+Xh
+Xi
+Xj
+Xk
+Xl
+Xm
+Xn
+Xo
+Xp
+Xq
+Xr
+Xs
+Xt
+Xu
+Xv
+Xw
+Xx
+Xy
+Xz
+X{
+X|
+X}
+X~
+X!!
+X"!
+X#!
+X$!
+X%!
+X&!
+X'!
+X(!
+X)!
+X*!
+X+!
+X,!
+X-!
+X.!
+X/!
+X0!
+X1!
+X2!
+X3!
+X4!
+X5!
+X6!
+X7!
+X8!
+X9!
+X:!
+X;!
+X<!
+X=!
+X>!
+X?!
+bX @!
+XA!
+XB!
+XC!
+XD!
+XE!
+XF!
+XG!
+XH!
+XI!
+XJ!
+XK!
+XL!
+XM!
+XN!
+XO!
+XP!
+bX Q!
+bX R!
+bX S!
+bX T!
+bX U!
+bX V!
+bX W!
+bX X!
+bX Y!
+bX Z!
+bX [!
+bX \!
+bX ]!
+bX ^!
+X_!
+X`!
+Xa!
+Xb!
+Xc!
+Xd!
+Xe!
+Xf!
+Xg!
+Xh!
+Xi!
+Xj!
+Xk!
+Xl!
+Xm!
+Xn!
+Xo!
+Xp!
+Xq!
+Xr!
+Xs!
+Xt!
+Xu!
+Xv!
+Xw!
+Xx!
+0y!
+0z!
+X{!
+X|!
+X}!
+X~!
+X!"
+X""
+X#"
+X$"
+X%"
+X&"
+X'"
+X("
+X)"
+X*"
+X+"
+X,"
+X-"
+X."
+X/"
+X0"
+X1"
+X2"
+X3"
+X4"
+X5"
+X6"
+07"
+08"
+X9"
+X:"
+X;"
+X<"
+X="
+X>"
+X?"
+X@"
+XA"
+XB"
+XC"
+XD"
+XE"
+XF"
+XG"
+XH"
+XI"
+XJ"
+XK"
+XL"
+XM"
+XN"
+XO"
+XP"
+XQ"
+XR"
+0S"
+1T"
+XU"
+XV"
+XW"
+XX"
+XY"
+XZ"
+X["
+X\"
+X]"
+X^"
+X_"
+X`"
+Xa"
+Xb"
+Xc"
+Xd"
+Xe"
+Xf"
+Xg"
+Xh"
+Xi"
+Xj"
+Xk"
+Xl"
+Xm"
+Xn"
+0o"
+1p"
+Xq"
+Xr"
+Xs"
+Xt"
+Xu"
+Xv"
+Xw"
+Xx"
+Xy"
+Xz"
+X{"
+X|"
+X}"
+X~"
+X!#
+X"#
+X##
+X$#
+X%#
+X&#
+X'#
+X(#
+X)#
+X*#
+X+#
+X,#
+X-#
+X.#
+X/#
+00#
+01#
+X2#
+X3#
+X4#
+X5#
+X6#
+X7#
+X8#
+X9#
+X:#
+X;#
+X<#
+X=#
+X>#
+X?#
+X@#
+XA#
+XB#
+XC#
+XD#
+XE#
+XF#
+XG#
+XH#
+XI#
+XJ#
+XK#
+XL#
+XM#
+XN#
+0O#
+1P#
+XQ#
+XR#
+XS#
+XT#
+XU#
+XV#
+XW#
+XX#
+XY#
+XZ#
+X[#
+X\#
+X]#
+X^#
+X_#
+X`#
+Xa#
+Xb#
+Xc#
+Xd#
+Xe#
+Xf#
+Xg#
+Xh#
+Xi#
+Xj#
+Xk#
+Xl#
+Xm#
+0n#
+0o#
+Xp#
+Xq#
+Xr#
+Xs#
+Xt#
+Xu#
+Xv#
+Xw#
+Xx#
+Xy#
+Xz#
+X{#
+X|#
+X}#
+X~#
+X!$
+X"$
+X#$
+X$$
+X%$
+X&$
+X'$
+X($
+X)$
+X*$
+X+$
+X,$
+X-$
+X.$
+0/$
+10$
+01$
+02$
+03$
+04$
+05$
+06$
+07$
+08$
+09$
+0:$
+0;$
+0<$
+0=$
+0>$
+0?$
+0@$
+0A$
+0B$
+0C$
+0D$
+0E$
+0F$
+0G$
+0H$
+0I$
+0J$
+0K$
+0L$
+0M$
+0N$
+0O$
+0P$
+0Q$
+0R$
+0S$
+0T$
+0U$
+0V$
+0W$
+0X$
+0Y$
+0Z$
+0[$
+0\$
+$end

@@ -43,25 +43,6 @@ SIGNAL start:	STD_LOGIC;
 
 SIGNAL w : STD_LOGIC_VECTOR(7 DOWNTO 0);
 
-SIGNAL y0 : STD_LOGIC_VECTOR(7 DOWNTO 0);
-SIGNAL y1 : STD_LOGIC_VECTOR(7 DOWNTO 0);
-SIGNAL y2 : STD_LOGIC_VECTOR(7 DOWNTO 0);
-SIGNAL y3 : STD_LOGIC_VECTOR(7 DOWNTO 0);
-
-SIGNAL u0 : STD_LOGIC;
-SIGNAL s0 : STD_LOGIC_VECTOR(1 DOWNTO 0);
-SIGNAL x0 : STD_LOGIC_VECTOR(8 DOWNTO 0);
-
-SIGNAL v0 : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL v1 : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL v2 : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL v3 : STD_LOGIC_VECTOR(8 DOWNTO 0);
-
-SIGNAL s1 : STD_LOGIC_VECTOR(1 DOWNTO 0);
-SIGNAL u1 : STD_LOGIC;
-
-SIGNAL z0 : STD_LOGIC_VECTOR(9 DOWNTO 0);
-
 SIGNAL s : STD_LOGIC_VECTOR(8 DOWNTO 0);
 COMPONENT HadamardPipeline1SamplePerCycle
 	PORT (
@@ -69,25 +50,6 @@ COMPONENT HadamardPipeline1SamplePerCycle
 	clock : IN STD_LOGIC;
 	
 	w : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-	
-	y0 : BUFFER STD_LOGIC_VECTOR(7 DOWNTO 0);
-	y1 : BUFFER STD_LOGIC_VECTOR(7 DOWNTO 0);
-	y2 : BUFFER STD_LOGIC_VECTOR(7 DOWNTO 0);
-	y3 : BUFFER STD_LOGIC_VECTOR(7 DOWNTO 0);
-
-	u0 : BUFFER STD_LOGIC;
-	s0 : BUFFER STD_LOGIC_VECTOR(1 DOWNTO 0);
-	x0 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
-	
-	v0 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
-	v1 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
-	v2 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
-	v3 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
-	
-	u1 : BUFFER STD_LOGIC;
-	s1 : BUFFER STD_LOGIC_VECTOR(1 DOWNTO 0);
-
-	z0 : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0);
 	
 	s : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0)
 
@@ -124,27 +86,13 @@ function stdvec_to_str(inp: std_logic_vector) return string is
 	file input, output: text;
 
 BEGIN
-	i1 : HadamardPipeline1SamplePerCycle
+	pipe1sample : entity work.HadamardPipeline1SamplePerCycle
 	PORT MAP (
 -- list connections between master ports and signals
 	clear => clear,
 	clock => clock,
-	s => s,
-	s0 => s0,
-	s1 => s1,
-	u0 => u0,
-	u1 => u1,
-	v0 => v0,
-	v1 => v1,
-	v2 => v2,
-	v3 => v3,
 	w => w,
-	x0 => x0,
-	y0 => y0,
-	y1 => y1,
-	y2 => y2,
-	y3 => y3,
-	z0 => z0
+	s => s
 	);
 init : PROCESS                                               
 -- variable declarations                                     
@@ -184,7 +132,7 @@ stimulus_in: process
 		
     
 		FILE_OPEN(input, "hadamard_input.txt", READ_MODE);
-		FILE_OPEN(output, "pipeline1sample_output.txt", WRITE_MODE);
+		--FILE_OPEN(output, "pipeline1sample_output.txt", WRITE_MODE);
 						
 		wait until (start = '1');
 		while counter <= 410 loop
@@ -209,61 +157,75 @@ stimulus_in: process
 					
 					innerCounterIn := innerCounterIn + 1;
 					
-					if(counter >= 11) then
-						out0 := s;
-						str_out0 := stdvec_to_str(out0);
-						write(outline, str_out0);
-						write(outline, blank(1));
-						
-						innerCounterOut := innerCounterOut + 1;
-						if (innerCounterOut = 4) then						-- caso seja o quarto valor lido da saida, escreve uma linha no arquivo de saida, 
-							writeline(output, outline);					-- com as 4 saidas resultantes das multiplicacoes hadamard
-							innerCounterOut := 0;
-						end if;
-					end if;
+--					if(counter >= 11) then
+--						out0 := s;
+--						str_out0 := stdvec_to_str(out0);
+--						write(outline, str_out0);
+--						write(outline, blank(1));
+--						
+--						innerCounterOut := innerCounterOut + 1;
+--						if (innerCounterOut = 4) then						-- caso seja o quarto valor lido da saida, escreve uma linha no arquivo de saida, 
+--							writeline(output, outline);					-- com as 4 saidas resultantes das multiplicacoes hadamard
+--							innerCounterOut := 0;
+--						end if;
+--					end if;
 					
 					counter := counter + 1;
 					wait until(clock'event and clock = '1');
 				end loop;
 				
-				if (counter = 400) then
-					w <= "00000000";
-					
-					out0 := s;
-					str_out0 := stdvec_to_str(out0);
-					write(outline, str_out0);
-					write(outline, blank(1));
-					
-					innerCounterOut := innerCounterOut + 1;
-					if (innerCounterOut = 4) then
-						writeline(output, outline);
-						innerCounterOut := 0;
-					end if;
-						
-					counter := counter + 1;
-					wait until(clock'event and clock = '1');
-				end if;
+--				if (counter = 400) then
+--					w <= "00000000";
+--					
+--					out0 := s;
+--					str_out0 := stdvec_to_str(out0);
+--					write(outline, str_out0);
+--					write(outline, blank(1));
+--					
+--					innerCounterOut := innerCounterOut + 1;
+--					if (innerCounterOut = 4) then
+--						writeline(output, outline);
+--						innerCounterOut := 0;
+--					end if;
+--						
+--					counter := counter + 1;
+--					wait until(clock'event and clock = '1');
+--				end if;
 			else 
-				out0 := s;
-				str_out0 := stdvec_to_str(out0);
-				write(outline, str_out0);
-				write(outline, blank(1));
-				
-				innerCounterOut := innerCounterOut + 1;
-				if (innerCounterOut = 4) then
-					writeline(output, outline);
-					innerCounterOut := 0;
-				end if;
-						
-				counter := counter + 1;
 				wait until(clock'event and clock = '1');
+				wait until(clock'event and clock = '1');
+				wait until(clock'event and clock = '1');
+				wait until(clock'event and clock = '1');
+				wait until(clock'event and clock = '1');
+				wait until(clock'event and clock = '1');
+				wait until(clock'event and clock = '1');
+				wait until(clock'event and clock = '1');
+				wait until(clock'event and clock = '1');
+				wait until(clock'event and clock = '1');
+				
+				file_close(input);
+				assert false report "end of simulation" severity failure;
+--				out0 := s;
+--				str_out0 := stdvec_to_str(out0);
+--				write(outline, str_out0);
+--				write(outline, blank(1));
+--				
+--				innerCounterOut := innerCounterOut + 1;
+--				if (innerCounterOut = 4) then
+--					writeline(output, outline);
+--					innerCounterOut := 0;
+--				end if;
+--						
+--				counter := counter + 1;
+--				wait until(clock'event and clock = '1');
 			end if;
 			
 		end loop;		
 		
 		file_close(input);
-		file_close(output);
-		wait;
+--		file_close(output);
+--		wait for 1ms;
+--		assert false report "end of simulation" severity failure;
 	end process;  
 	
 END HadamardPipeline1SamplePerCycle_arch;

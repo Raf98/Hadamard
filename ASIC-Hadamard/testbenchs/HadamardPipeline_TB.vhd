@@ -43,16 +43,6 @@ SIGNAL w1 : STD_LOGIC_VECTOR(7 DOWNTO 0);
 SIGNAL w2 : STD_LOGIC_VECTOR(7 DOWNTO 0);
 SIGNAL w3 : STD_LOGIC_VECTOR(7 DOWNTO 0);
 
-
-SIGNAL x0 : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL x1 : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL x2 : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL x3 : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL y0 : STD_LOGIC_VECTOR(9 DOWNTO 0);
-SIGNAL y1 : STD_LOGIC_VECTOR(9 DOWNTO 0);
-SIGNAL y2 : STD_LOGIC_VECTOR(9 DOWNTO 0);
-SIGNAL y3 : STD_LOGIC_VECTOR(9 DOWNTO 0);
-
 SIGNAL s0 : STD_LOGIC_VECTOR(8 DOWNTO 0);
 SIGNAL s1 : STD_LOGIC_VECTOR(8 DOWNTO 0);
 SIGNAL s2 : STD_LOGIC_VECTOR(8 DOWNTO 0);
@@ -69,16 +59,6 @@ COMPONENT HadamardPipeline
 	w1 : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 	w2 : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 	w3 : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-	
-	--SAIDAS INTERMEDIARIAS
-	x0 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
-	x1 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
-	x2 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
-	x3 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
-	y0 : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0);
-	y1 : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0);
-	y2 : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0);
-	y3 : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0);
 	
 	--SAIDAS
 	s0 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
@@ -118,7 +98,7 @@ function stdvec_to_str(inp: std_logic_vector) return string is
 	file input, output: text;
 
 BEGIN
-	i1 : HadamardPipeline
+	pipe : entity work.HadamardPipeline
 	PORT MAP (
 -- list connections between master ports and signals
 	clear => clear,
@@ -128,16 +108,6 @@ BEGIN
 	w1 => w1,
 	w2 => w2,
 	w3 => w3,
-	
-	
-	x0 => x0,
-	x1 => x1,
-	x2 => x2,
-	x3 => x3,
-	y0 => y0,
-	y1 => y1,
-	y2 => y2,
-	y3 => y3,
 	
 	s0 => s0,
 	s1 => s1,
@@ -188,7 +158,7 @@ stimulus_in: process
 		
     
 		FILE_OPEN(input, "hadamard_input.txt", READ_MODE);
-		FILE_OPEN(output, "pipeline_output.txt", WRITE_MODE);
+		--FILE_OPEN(output, "pipeline_output.txt", WRITE_MODE);
 						
 		wait until (clear = '0');
 		while counter <= 101 loop
@@ -212,47 +182,56 @@ stimulus_in: process
 				read(inline, blank(1));
 				read(inline, num3);
 				w3 <= str_to_stdvec(num3);
-				
+			
+			
+				wait until(clock'event and clock = '1');
+			
+			else 
+				wait until(clock'event and clock = '1');
+				wait until(clock'event and clock = '1');
+				wait until(clock'event and clock = '1');
+				wait until(clock'event and clock = '1');
+				wait until(clock'event and clock = '1');
+				file_close(input);
+				assert false report "end of simulation" severity failure;
 			end if;
-			
-			
-			wait until(clock'event and clock = '1');
 			
 			
 			--ESCREVENDO SAIDAS
-			if counter >= 2 then
-			
-				out0 := s0;
-				str_out0 := stdvec_to_str(out0);
-				write(outline, str_out0);
-				write(outline, blank(1));
-				
-				out1 := s1;
-				str_out1 := stdvec_to_str(out1);
-				write(outline, str_out1);
-				write(outline, blank(1));
-				
-				out2 := s2;
-				str_out2 := stdvec_to_str(out2);
-				write(outline, str_out2);
-				write(outline, blank(1));
-				
-				out3 := s3;
-				str_out3 := stdvec_to_str(out3);
-				write(outline, str_out3);
-				write(outline, blank(1));
-				
-				writeline(output, outline);
-				
-			end if;
-			
+--			if counter >= 2 then
+--			
+--				out0 := s0;
+--				str_out0 := stdvec_to_str(out0);
+--				write(outline, str_out0);
+--				write(outline, blank(1));
+--				
+--				out1 := s1;
+--				str_out1 := stdvec_to_str(out1);
+--				write(outline, str_out1);
+--				write(outline, blank(1));
+--				
+--				out2 := s2;
+--				str_out2 := stdvec_to_str(out2);
+--				write(outline, str_out2);
+--				write(outline, blank(1));
+--				
+--				out3 := s3;
+--				str_out3 := stdvec_to_str(out3);
+--				write(outline, str_out3);
+--				write(outline, blank(1));
+--				
+--				writeline(output, outline);
+--				
+--			end if;
+--			
 			counter := counter + 1;
 		end loop;		
 		
 		file_close(input);
-		file_close(output);
+		--file_close(output);
 		--writeline(output, outline);
-		wait;
+		--wait for 500ms;
+		--assert false report "end of simulation" severity failure;
 	end process;
                                           
 END HadamardPipeline_arch;

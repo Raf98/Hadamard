@@ -8,3 +8,11 @@ simulation
 HadamardGolden
 *.png
 Testbench*/*
+*/logs*
+ASIC-Hadamard/scripts/outputs*
+ASIC-Hadamard/scripts/reports*
+ASIC-Hadamard/scripts/fv
+*INCA_libs
+ASIC-Hadamard/scripts/libscore_work
+*.log*
+*.key

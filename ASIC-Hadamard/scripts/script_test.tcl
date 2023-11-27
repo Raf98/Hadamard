@@ -17,9 +17,9 @@ set SYN_EFF medium
 ###set MAP_EFF medium
 set MAP_EFF high
 set DATE [clock format [clock seconds] -format "%b%d-%T"] 
-set _OUTPUTS_PATH outputs_comb#${DATE}
-set _REPORTS_PATH reports_comb#${DATE}
-set _LOG_PATH logs_comb#${DATE}
+set _OUTPUTS_PATH outputs_${DATE}
+set _REPORTS_PATH reports_${DATE}
+set _LOG_PATH logs_${DATE}
 ##set ET_WORKDIR <ET work directory>
 set_attribute lib_search_path {. /cadence/Library/NangateOpenCellLib_45nm/Front_End/Liberty/CCS/  /cadence/Library/NangateOpenCellLib_45nm/Back_End/lef/} /
 set_attribute hdl_search_path { ../HadamardCombinational } /
@@ -41,13 +41,12 @@ set_attribute information_level 7 /
 ## Library setup
 ###############################################################
 
-set_attribute library {NangateOpenCellLibrary_typical_ccs.lib}
 
-
+set_attribute library <libname>
 ## PLE
-set_attribute lef_library { NangateOpenCellLibrary.tech.lef NangateOpenCellLibrary.lef}    
+set_attribute lef_library <lef file(s)> /
 ## Provide either cap_table_file or the qrc_tech_file
-#set_attribute cap_table_file <file> /
+set_attribute cap_table_file <file> /
 #set_attribute qrc_tech_file <file> /
 ##generates <signal>_reg[<bit_width>] format
 #set_attribute hdl_array_naming_style %s\[%d\] /  
@@ -154,7 +153,6 @@ foreach cg [find / -cost_group *] {
 ## Leakage/Dynamic power/Clock Gating setup.
 #######################################################################################
 
-#write_saif  -computed $DESIGN > $_REPORTS_PATH/output1.saif
 
 #set_attribute lp_clock_gating_cell [find /lib* -libcell <cg_libcell_name>] "/designs/$DESIGN"
 #set_attribute max_leakage_power 0.0 "/designs/$DESIGN"
@@ -162,18 +160,9 @@ foreach cg [find / -cost_group *] {
 #set_attribute max_dynamic_power <number> "/designs/$DESIGN"
 ## read_tcf <TCF file name>
 ## read_saif <SAIF file name>
+## read_vcd <VCD file name>
 
-puts "Generating .vcd file..."
 
-shell irun -64 -v93 -top worklib.HadamardCombinational_vhd_tst  ../HadamardCombinational/*.vhd ../testbenchs/HadamardCombinational_TB.vhd -input ../testbenchs/comb_vcd.tcl -access +rw  > $_REPORTS_PATH/irun_comb.log
-
-puts "Reading .vcd file..."
-#set_attribute find_takes_multiple_names  true
-read_vcd -static -vcd_module comb -module $DESIGN comb.vcd
-
-#build_rtl_power_models -clean_up_netlist -design $DESIGN
-
-puts "Ending .vcd file..."
 
 #### To turn off sequential merging on the design 
 #### uncomment & use the following attributes.
@@ -194,13 +183,6 @@ timestat GENERIC
 report datapath > $_REPORTS_PATH/${DESIGN}_datapath_generic.rpt
 generate_reports -outdir $_REPORTS_PATH -tag generic
 summary_table -outdir $_REPORTS_PATH
-
-report area > $_REPORTS_PATH/${DESIGN}_area.rpt
-report datapath > $_REPORTS_PATH/${DESIGN}_datapath_incr.rpt
-report power > $_REPORTS_PATH/RC_power.log
-report timing > $_REPORTS_PATH/RC_timing.log
-
-write_saif  -computed $DESIGN > $_REPORTS_PATH/output_comb.saif 
 
 
 #### Build RTL power models
@@ -297,14 +279,5 @@ puts "Synthesis Finished ........."
 puts "============================"
 
 file copy [get_attr stdout_log /] ${_LOG_PATH}/.
-
-#############################################################################
-## Reports & Results
-#############################################################################
-
-report area -depth 3
-report gates -power
-report power -depth 2
-report qor
 
 ##quit
