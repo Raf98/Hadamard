@@ -166,7 +166,7 @@ foreach cg [find / -cost_group *] {
 
 puts "Generating .vcd file..."
 
-shell irun -64 -v93 -top worklib.HadamardPipeline1SamplePerCycle_vhd_tst ../HadamardPipeline1SamplePerCycle/*.vhd ../testbenchs/HadamardPipeline1SamplePerCycle_TB.vhd -input ../testbenchs/pipe1sample_vcd.tcl -access +rw   > $_REPORTS_PATH/irun_pipe.log
+shell irun -64 -v93 -top worklib.HadamardPipeline1SamplePerCycle_TB ../HadamardPipeline1SamplePerCycle/*.vhd ../testbenchs/HadamardPipeline1SamplePerCycle_TB.vhd -input ../testbenchs/pipe1sample_vcd.tcl -access +rw   > $_REPORTS_PATH/irun_pipe.log
 
 puts "Reading .vcd file..."
 #set_attribute find_takes_multiple_names  true

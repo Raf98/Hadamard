@@ -23,15 +23,15 @@ port
 	 
 	 
 	 --SAIDAS AUXILIARES, PARA VERIFICAR VALORES
-	 x0:     				out std_logic_vector(num downto 0);			--imprime saida do primeiro somador
-	 z0:						out std_logic_vector(num + 1 downto 0);	--imprime saida do segundo somador
+	 x0:     				out std_logic_vector(num     downto 0);	--imprime saida do primeiro somador
+--	 z0:						out std_logic_vector(num + 1 downto 0);	--imprime saida do segundo somador
 	 y0, y1, y2, y3:     out std_logic_vector(num - 1 downto 0);	--imprime valores de entrada escritos no primeiro buffer
 	 v0, v1, v2, v3:		out std_logic_vector(num	  downto 0);	--imprime valores de entrada escritos no segundo buffer
-	 s0, s1:					out std_logic_vector(1 downto 0);			--imprime valores dos sinais seletores dos muxes
+	 s0, s1:					out std_logic_vector(rNum -1 downto 0);	--imprime valores dos sinais seletores dos muxes
 	 u0, u1:					out std_logic;                            --imprime valores dos sinais de selecao de operacao dos somadores
 	 
 	 --SAIDA
-    s:     					out std_logic_vector(num	  downto 0)
+    s:     					out std_logic_vector(num + 1	downto 0)
 );
 end HadamardPipeline1SamplePerCycle;
 
@@ -105,7 +105,6 @@ architecture structure of HadamardPipeline1SamplePerCycle is
 	 				clk 			  	=> clock,
 	 				writeRegister 	=> '1');
 	   			
-					
 	 v0 <= d0;
 	 v1 <= d1;
 	 v2 <= d2;
@@ -125,12 +124,14 @@ architecture structure of HadamardPipeline1SamplePerCycle is
     port map('0', e0, e1, sub1, f0(num downto 0), carry(2));
 	 f0(num + 1) <= carry(2);
 	 
-	 z0 <= f0;
+	 s <= f0;
 	 
-	 SR: ShiftRight
-	 port map(f0, g0);
+--	 z0 <= f0;
+--	 
+--	 SR: ShiftRight
+--	 port map(f0, g0);
 	 
-	 s <= g0(num downto 0);
+--	 s <= g0(num downto 0);
 	 
 	 ------------------------Processo de escrita/leitura no pipeline----------
 
@@ -160,7 +161,7 @@ architecture structure of HadamardPipeline1SamplePerCycle is
 --			-- cujos valores serao, a partir daqui, lidos e usados como base para o mux selecionar, com sel0,
 --			-- quais entradas utilizar no somador, com operacao escolhida por sub0	
 --			
---			-- tambem no ciclo 4 define que, no proximo ciclo, o resultado da soma de a0 com a1 devera ser
+--			-- tambem no ciclo 4 define que, no proximo ciclo, o resultado da soma de a0 com a2 devera ser
 --			-- escrito no registrador de endereco 0 do buffer de "saida"/ buffer 2
 --			
 --			-- o sinal sub1 do passa a ser usado apenas em ciclos posteriores (a partir do ciclo 12), fazendo a subtracao

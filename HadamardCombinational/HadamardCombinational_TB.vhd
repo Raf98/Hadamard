@@ -32,10 +32,10 @@ USE ieee.numeric_std.ALL;
 USE std.textio.ALL;
                                 
 
-ENTITY HadamardCombinational_vhd_tst IS
+ENTITY HadamardCombinational_TB IS
 --port(	clk: in std_logic );
-END HadamardCombinational_vhd_tst;
-ARCHITECTURE HadamardCombinational_arch OF HadamardCombinational_vhd_tst IS
+END HadamardCombinational_TB;
+ARCHITECTURE HadamardCombinational_arch OF HadamardCombinational_TB IS
 -- constants                                                 
 -- signals 
 SIGNAL clk :  std_logic := '0';
@@ -46,10 +46,10 @@ SIGNAL w1 : STD_LOGIC_VECTOR(7 DOWNTO 0);
 SIGNAL w2 : STD_LOGIC_VECTOR(7 DOWNTO 0);
 SIGNAL w3 : STD_LOGIC_VECTOR(7 DOWNTO 0);
 
-SIGNAL s0 : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL s1 : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL s2 : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL s3 : STD_LOGIC_VECTOR(8 DOWNTO 0);
+SIGNAL s0 : STD_LOGIC_VECTOR(9 DOWNTO 0);
+SIGNAL s1 : STD_LOGIC_VECTOR(9 DOWNTO 0);
+SIGNAL s2 : STD_LOGIC_VECTOR(9 DOWNTO 0);
+SIGNAL s3 : STD_LOGIC_VECTOR(9 DOWNTO 0);
 COMPONENT HadamardCombinational
 	PORT (
 	w0 : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
@@ -57,10 +57,10 @@ COMPONENT HadamardCombinational
 	w2 : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 	w3 : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 	
-	s0 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
-	s1 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
-	s2 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
-	s3 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0)
+	s0 : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0);
+	s1 : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0);
+	s2 : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0);
+	s3 : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0)
 	);
 END COMPONENT;
 
@@ -96,7 +96,7 @@ function stdvec_to_str(inp: std_logic_vector) return string is
 
 
 BEGIN
-	i1 : HadamardCombinational
+	comb : entity work.HadamardCombinational
 	PORT MAP (
 -- list connections between master ports and signals
 	s0 => s0,
@@ -133,14 +133,14 @@ reset <= '1','0' after 2.5 ns;
 stimulus_in: process 
 	variable inline: line;
 	--
-	variable out0: std_logic_vector(8 downto 0);
-	variable out1: std_logic_vector(8 downto 0);
-	variable out2: std_logic_vector(8 downto 0);
-	variable out3: std_logic_vector(8 downto 0);
-	variable str_out0: string(9 downto 1);
-	variable str_out1: string(9 downto 1);
-	variable str_out2: string(9 downto 1);
-	variable str_out3: string(9 downto 1);
+	variable out0: std_logic_vector(9 downto 0);
+	variable out1: std_logic_vector(9 downto 0);
+	variable out2: std_logic_vector(9 downto 0);
+	variable out3: std_logic_vector(9 downto 0);
+	variable str_out0: string(10 downto 1);
+	variable str_out1: string(10 downto 1);
+	variable str_out2: string(10 downto 1);
+	variable str_out3: string(10 downto 1);
 	variable outline: line;	
 		--
 	variable num0: string(8 downto 1);

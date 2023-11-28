@@ -31,9 +31,9 @@ USE ieee.std_logic_unsigned.all;
 USE ieee.numeric_std.ALL;
 USE std.textio.ALL;                                     
 
-ENTITY HadamardPipeline1SamplePerCycle_vhd_tst IS
-END HadamardPipeline1SamplePerCycle_vhd_tst;
-ARCHITECTURE HadamardPipeline1SamplePerCycle_arch OF HadamardPipeline1SamplePerCycle_vhd_tst IS
+ENTITY HadamardPipeline1SamplePerCycle_TB IS
+END HadamardPipeline1SamplePerCycle_TB;
+ARCHITECTURE HadamardPipeline1SamplePerCycle_arch OF HadamardPipeline1SamplePerCycle_TB IS
 -- constants                                                 
 -- signals                                                   
 SIGNAL clear : STD_LOGIC;
@@ -43,7 +43,7 @@ SIGNAL start:	STD_LOGIC;
 
 SIGNAL w : STD_LOGIC_VECTOR(7 DOWNTO 0);
 
-SIGNAL s : STD_LOGIC_VECTOR(8 DOWNTO 0);
+SIGNAL s : STD_LOGIC_VECTOR(9 DOWNTO 0);
 COMPONENT HadamardPipeline1SamplePerCycle
 	PORT (
 	clear : IN STD_LOGIC;
@@ -51,7 +51,7 @@ COMPONENT HadamardPipeline1SamplePerCycle
 	
 	w : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 	
-	s : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0)
+	s : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0)
 
 	);
 END COMPONENT;
@@ -115,8 +115,8 @@ start <= '0', '1' after 3 ns;
 stimulus_in: process 
 	variable inline: line;
 	--
-	variable out0: std_logic_vector(8 downto 0);
-	variable str_out0: string(9 downto 1);
+	variable out0: std_logic_vector(9 downto 0);
+	variable str_out0: string(10 downto 1);
 	variable outline: line;	
 		--
 	variable num: string(8 downto 1);

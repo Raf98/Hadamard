@@ -107,14 +107,14 @@ int main(int argc, char const *argv[])
         a[2] = w[i][0] - w[i][2];
         a[3] = w[i][1] - w[i][3];
 
-        s[i][0] = (a[0] + a[1]) >> 1;
-        s[i][1] = (a[0] - a[1]) >> 1;
-        s[i][2] = (a[2] + a[3]) >> 1;
-        s[i][3] = (a[2] - a[3]) >> 1;
+        s[i][0] = (a[0] + a[1]); //>> 1;
+        s[i][1] = (a[0] - a[1]); //>> 1;
+        s[i][2] = (a[2] + a[3]); //>> 1;
+        s[i][3] = (a[2] - a[3]); //>> 1;
     }
 
     generateFile("hadamard_input.txt", w, 8);
-    generateFile("hadamard_output.txt", s, 9);
+    generateFile("hadamard_output.txt", s, 10);
 
     generateFileDec("hadamard_input_dec.txt", w);
     printf("OUT DEC...\n");

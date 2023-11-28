@@ -1,7 +1,7 @@
 Geração de arquivos de chaveamento .vcd para cada arquitetura implementada: 
 
-irun -64 -v93 -top worklib.HadamardCombinational_vhd_tst  ../HadamardCombinational/*.vhd ../testbenchs/HadamardCombinational_TB.vhd -input ../testbenchs/comb_vcd.tcl -access +rw
+irun -64 -v93 -top worklib.HadamardCombinational_TB  ../HadamardCombinational/*.vhd ../testbenchs/HadamardCombinational_TB.vhd -input ../testbenchs/comb_vcd.tcl -access +rw
 
-irun -64 -v93 -top worklib.HadamardPipeline_vhd_tst   ../HadamardPipeline/*.vhd ../testbenchs/HadamardPipeline_TB.vhd -access +rw -input ../testbenchs/pipe_vcd.tcl -access +rw
+irun -64 -v93 -top worklib.HadamardPipeline_TB   ../HadamardPipeline/*.vhd ../testbenchs/HadamardPipeline_TB.vhd -access +rw -input ../testbenchs/pipe_vcd.tcl -access +rw
 
-irun -64 -v93 -top worklib.HadamardPipeline1SamplePerCycle_vhd_tst ../HadamardPipeline1SamplePerCycle/*.vhd ../testbenchs/HadamardPipeline1SamplePerCycle_TB.vhd -input ../testbenchs/pipe1sample_vcd.tcl -access +rw 
+irun -64 -v93 -top worklib.HadamardPipeline1SamplePerCycle_TB ../HadamardPipeline1SamplePerCycle/*.vhd ../testbenchs/HadamardPipeline1SamplePerCycle_TB.vhd -input ../testbenchs/pipe1sample_vcd.tcl -access +rw 

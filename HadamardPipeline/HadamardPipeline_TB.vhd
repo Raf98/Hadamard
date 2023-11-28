@@ -31,9 +31,9 @@ USE ieee.std_logic_unsigned.all;
 USE ieee.numeric_std.ALL;
 USE std.textio.ALL;                                
 
-ENTITY HadamardPipeline_vhd_tst IS
-END HadamardPipeline_vhd_tst;
-ARCHITECTURE HadamardPipeline_arch OF HadamardPipeline_vhd_tst IS
+ENTITY HadamardPipeline_TB IS
+END HadamardPipeline_TB;
+ARCHITECTURE HadamardPipeline_arch OF HadamardPipeline_TB IS
 -- constants                                                 
 -- signals                                                   
 SIGNAL clear : STD_LOGIC;
@@ -44,19 +44,19 @@ SIGNAL w2 : STD_LOGIC_VECTOR(7 DOWNTO 0);
 SIGNAL w3 : STD_LOGIC_VECTOR(7 DOWNTO 0);
 
 
-SIGNAL x0 : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL x1 : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL x2 : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL x3 : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL y0 : STD_LOGIC_VECTOR(9 DOWNTO 0);
-SIGNAL y1 : STD_LOGIC_VECTOR(9 DOWNTO 0);
-SIGNAL y2 : STD_LOGIC_VECTOR(9 DOWNTO 0);
-SIGNAL y3 : STD_LOGIC_VECTOR(9 DOWNTO 0);
+--SIGNAL x0 : STD_LOGIC_VECTOR(8 DOWNTO 0);
+--SIGNAL x1 : STD_LOGIC_VECTOR(8 DOWNTO 0);
+--SIGNAL x2 : STD_LOGIC_VECTOR(8 DOWNTO 0);
+--SIGNAL x3 : STD_LOGIC_VECTOR(8 DOWNTO 0);
+--SIGNAL y0 : STD_LOGIC_VECTOR(9 DOWNTO 0);
+--SIGNAL y1 : STD_LOGIC_VECTOR(9 DOWNTO 0);
+--SIGNAL y2 : STD_LOGIC_VECTOR(9 DOWNTO 0);
+--SIGNAL y3 : STD_LOGIC_VECTOR(9 DOWNTO 0);
 
-SIGNAL s0 : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL s1 : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL s2 : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL s3 : STD_LOGIC_VECTOR(8 DOWNTO 0);
+SIGNAL s0 : STD_LOGIC_VECTOR(9 DOWNTO 0);
+SIGNAL s1 : STD_LOGIC_VECTOR(9 DOWNTO 0);
+SIGNAL s2 : STD_LOGIC_VECTOR(9 DOWNTO 0);
+SIGNAL s3 : STD_LOGIC_VECTOR(9 DOWNTO 0);
 
 COMPONENT HadamardPipeline
 	PORT (
@@ -71,20 +71,20 @@ COMPONENT HadamardPipeline
 	w3 : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 	
 	--SAIDAS INTERMEDIARIAS
-	x0 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
-	x1 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
-	x2 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
-	x3 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
-	y0 : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0);
-	y1 : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0);
-	y2 : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0);
-	y3 : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0);
+--	x0 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
+--	x1 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
+--	x2 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
+--	x3 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
+--	y0 : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0);
+--	y1 : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0);
+--	y2 : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0);
+--	y3 : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0);
 	
 	--SAIDAS
-	s0 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
-	s1 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
-	s2 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
-	s3 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0)
+	s0 : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0);
+	s1 : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0);
+	s2 : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0);
+	s3 : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0)
 	);
 END COMPONENT;
 
@@ -118,7 +118,7 @@ function stdvec_to_str(inp: std_logic_vector) return string is
 	file input, output: text;
 
 BEGIN
-	i1 : HadamardPipeline
+	pipe : entity work.HadamardPipeline
 	PORT MAP (
 -- list connections between master ports and signals
 	clear => clear,
@@ -130,14 +130,14 @@ BEGIN
 	w3 => w3,
 	
 	
-	x0 => x0,
-	x1 => x1,
-	x2 => x2,
-	x3 => x3,
-	y0 => y0,
-	y1 => y1,
-	y2 => y2,
-	y3 => y3,
+--	x0 => x0,
+--	x1 => x1,
+--	x2 => x2,
+--	x3 => x3,
+--	y0 => y0,
+--	y1 => y1,
+--	y2 => y2,
+--	y3 => y3,
 	
 	s0 => s0,
 	s1 => s1,
@@ -165,14 +165,14 @@ clear <= '1', '0' after 0.5 ns;
 stimulus_in: process 
 	variable inline: line;
 	--
-	variable out0: std_logic_vector(8 downto 0);
-	variable out1: std_logic_vector(8 downto 0);
-	variable out2: std_logic_vector(8 downto 0);
-	variable out3: std_logic_vector(8 downto 0);
-	variable str_out0: string(9 downto 1);
-	variable str_out1: string(9 downto 1);
-	variable str_out2: string(9 downto 1);
-	variable str_out3: string(9 downto 1);
+	variable out0: std_logic_vector(9 downto 0);
+	variable out1: std_logic_vector(9 downto 0);
+	variable out2: std_logic_vector(9 downto 0);
+	variable out3: std_logic_vector(9 downto 0);
+	variable str_out0: string(10 downto 1);
+	variable str_out1: string(10 downto 1);
+	variable str_out2: string(10 downto 1);
+	variable str_out3: string(10 downto 1);
 	variable outline: line;	
 		--
 	variable num0: string(8 downto 1);

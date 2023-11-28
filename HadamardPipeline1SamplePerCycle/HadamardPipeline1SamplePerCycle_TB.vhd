@@ -31,9 +31,9 @@ USE ieee.std_logic_unsigned.all;
 USE ieee.numeric_std.ALL;
 USE std.textio.ALL;                                     
 
-ENTITY HadamardPipeline1SamplePerCycle_vhd_tst IS
-END HadamardPipeline1SamplePerCycle_vhd_tst;
-ARCHITECTURE HadamardPipeline1SamplePerCycle_arch OF HadamardPipeline1SamplePerCycle_vhd_tst IS
+ENTITY HadamardPipeline1SamplePerCycle_TB IS
+END HadamardPipeline1SamplePerCycle_TB;
+ARCHITECTURE HadamardPipeline1SamplePerCycle_arch OF HadamardPipeline1SamplePerCycle_TB IS
 -- constants                                                 
 -- signals                                                   
 SIGNAL clear : STD_LOGIC;
@@ -43,26 +43,26 @@ SIGNAL start:	STD_LOGIC;
 
 SIGNAL w : STD_LOGIC_VECTOR(7 DOWNTO 0);
 
-SIGNAL y0 : STD_LOGIC_VECTOR(7 DOWNTO 0);
-SIGNAL y1 : STD_LOGIC_VECTOR(7 DOWNTO 0);
-SIGNAL y2 : STD_LOGIC_VECTOR(7 DOWNTO 0);
-SIGNAL y3 : STD_LOGIC_VECTOR(7 DOWNTO 0);
+--SIGNAL y0 : STD_LOGIC_VECTOR(7 DOWNTO 0);
+--SIGNAL y1 : STD_LOGIC_VECTOR(7 DOWNTO 0);
+--SIGNAL y2 : STD_LOGIC_VECTOR(7 DOWNTO 0);
+--SIGNAL y3 : STD_LOGIC_VECTOR(7 DOWNTO 0);
+--
+--SIGNAL u0 : STD_LOGIC;
+--SIGNAL s0 : STD_LOGIC_VECTOR(1 DOWNTO 0);
+--SIGNAL x0 : STD_LOGIC_VECTOR(8 DOWNTO 0);
+--
+--SIGNAL v0 : STD_LOGIC_VECTOR(8 DOWNTO 0);
+--SIGNAL v1 : STD_LOGIC_VECTOR(8 DOWNTO 0);
+--SIGNAL v2 : STD_LOGIC_VECTOR(8 DOWNTO 0);
+--SIGNAL v3 : STD_LOGIC_VECTOR(8 DOWNTO 0);
+--
+--SIGNAL s1 : STD_LOGIC_VECTOR(1 DOWNTO 0);
+--SIGNAL u1 : STD_LOGIC;
+--
+--SIGNAL z0 : STD_LOGIC_VECTOR(9 DOWNTO 0);
 
-SIGNAL u0 : STD_LOGIC;
-SIGNAL s0 : STD_LOGIC_VECTOR(1 DOWNTO 0);
-SIGNAL x0 : STD_LOGIC_VECTOR(8 DOWNTO 0);
-
-SIGNAL v0 : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL v1 : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL v2 : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL v3 : STD_LOGIC_VECTOR(8 DOWNTO 0);
-
-SIGNAL s1 : STD_LOGIC_VECTOR(1 DOWNTO 0);
-SIGNAL u1 : STD_LOGIC;
-
-SIGNAL z0 : STD_LOGIC_VECTOR(9 DOWNTO 0);
-
-SIGNAL s : STD_LOGIC_VECTOR(8 DOWNTO 0);
+SIGNAL s : STD_LOGIC_VECTOR(9 DOWNTO 0);
 COMPONENT HadamardPipeline1SamplePerCycle
 	PORT (
 	clear : IN STD_LOGIC;
@@ -70,26 +70,26 @@ COMPONENT HadamardPipeline1SamplePerCycle
 	
 	w : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 	
-	y0 : BUFFER STD_LOGIC_VECTOR(7 DOWNTO 0);
-	y1 : BUFFER STD_LOGIC_VECTOR(7 DOWNTO 0);
-	y2 : BUFFER STD_LOGIC_VECTOR(7 DOWNTO 0);
-	y3 : BUFFER STD_LOGIC_VECTOR(7 DOWNTO 0);
-
-	u0 : BUFFER STD_LOGIC;
-	s0 : BUFFER STD_LOGIC_VECTOR(1 DOWNTO 0);
-	x0 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
+--	y0 : BUFFER STD_LOGIC_VECTOR(7 DOWNTO 0);
+--	y1 : BUFFER STD_LOGIC_VECTOR(7 DOWNTO 0);
+--	y2 : BUFFER STD_LOGIC_VECTOR(7 DOWNTO 0);
+--	y3 : BUFFER STD_LOGIC_VECTOR(7 DOWNTO 0);
+--
+--	u0 : BUFFER STD_LOGIC;
+--	s0 : BUFFER STD_LOGIC_VECTOR(1 DOWNTO 0);
+--	x0 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
+--	
+--	v0 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
+--	v1 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
+--	v2 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
+--	v3 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
+--	
+--	u1 : BUFFER STD_LOGIC;
+--	s1 : BUFFER STD_LOGIC_VECTOR(1 DOWNTO 0);
+--
+--	z0 : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0);
 	
-	v0 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
-	v1 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
-	v2 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
-	v3 : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0);
-	
-	u1 : BUFFER STD_LOGIC;
-	s1 : BUFFER STD_LOGIC_VECTOR(1 DOWNTO 0);
-
-	z0 : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0);
-	
-	s : BUFFER STD_LOGIC_VECTOR(8 DOWNTO 0)
+	s : BUFFER STD_LOGIC_VECTOR(9 DOWNTO 0)
 
 	);
 END COMPONENT;
@@ -124,27 +124,28 @@ function stdvec_to_str(inp: std_logic_vector) return string is
 	file input, output: text;
 
 BEGIN
-	i1 : HadamardPipeline1SamplePerCycle
+	pipe1sample : entity work.HadamardPipeline1SamplePerCycle
 	PORT MAP (
 -- list connections between master ports and signals
 	clear => clear,
 	clock => clock,
-	s => s,
-	s0 => s0,
-	s1 => s1,
-	u0 => u0,
-	u1 => u1,
-	v0 => v0,
-	v1 => v1,
-	v2 => v2,
-	v3 => v3,
+	
+--	s0 => s0,
+--	s1 => s1,
+--	u0 => u0,
+--	u1 => u1,
+--	v0 => v0,
+--	v1 => v1,
+--	v2 => v2,
+--	v3 => v3,
 	w => w,
-	x0 => x0,
-	y0 => y0,
-	y1 => y1,
-	y2 => y2,
-	y3 => y3,
-	z0 => z0
+--	x0 => x0,
+--	y0 => y0,
+--	y1 => y1,
+--	y2 => y2,
+--	y3 => y3,
+--	z0 => z0
+	s => s
 	);
 init : PROCESS                                               
 -- variable declarations                                     
@@ -167,8 +168,8 @@ start <= '0', '1' after 3 ns;
 stimulus_in: process 
 	variable inline: line;
 	--
-	variable out0: std_logic_vector(8 downto 0);
-	variable str_out0: string(9 downto 1);
+	variable out0: std_logic_vector(9 downto 0);
+	variable str_out0: string(10 downto 1);
 	variable outline: line;	
 		--
 	variable num: string(8 downto 1);
