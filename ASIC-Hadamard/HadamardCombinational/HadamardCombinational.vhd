@@ -18,8 +18,8 @@ port
 (
     w0, w1, w2, w3:     in  std_logic_vector(num - 1 downto 0);
 	 x0, x1, x2, x3:     out std_logic_vector(num downto 0);
-	 y0, y1, y2, y3:     out std_logic_vector(num + 1 downto 0);
-    s0, s1, s2, s3:     out std_logic_vector(num downto 0)
+--	 y0, y1, y2, y3:     out std_logic_vector(num + 1 downto 0);
+    s0, s1, s2, s3:     out std_logic_vector(num + 1 downto 0)
 );
 end HadamardCombinational;
 
@@ -76,26 +76,26 @@ architecture structure of HadamardCombinational is
     port map('0', a2, a3, '1', b3(num downto 0), carry(8));
 	 b3(num + 1) <= carry(8);
 	 
-	 y0 <= b0;
-	 y1 <= b1;
-	 y2 <= b2;
-	 y3 <= b3;
+	 s0 <= b0;
+	 s1 <= b1;
+	 s2 <= b2;
+	 s3 <= b3;
 	 
-	 SR0: ShiftRight
-	 port map(b0, c0);
-	 
-	 SR1: ShiftRight
-	 port map(b1, c1);
-	 
-	 SR2: ShiftRight
-	 port map(b2, c2);
-	 
-	 SR3: ShiftRight
-	 port map(b3, c3);
-	 
-	 s0 <= c0(num downto 0);
-	 s1 <= c1(num downto 0);
-	 s2 <= c2(num downto 0);
-	 s3 <= c3(num downto 0);
+--	 SR0: ShiftRight
+--	 port map(b0, c0);
+--	 
+--	 SR1: ShiftRight
+--	 port map(b1, c1);
+--	 
+--	 SR2: ShiftRight
+--	 port map(b2, c2);
+--	 
+--	 SR3: ShiftRight
+--	 port map(b3, c3);
+--	 
+--	 s0 <= c0(num downto 0);
+--	 s1 <= c1(num downto 0);
+--	 s2 <= c2(num downto 0);
+--	 s3 <= c3(num downto 0);
         
 	end structure;
