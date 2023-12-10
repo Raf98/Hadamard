@@ -123,11 +123,11 @@ clock: PROCESS
 -- (        )                                                 
 -- variable declarations                                      
 BEGIN                                                         
-      clk <= '1', '0' AFTER 1 ns;
-  		WAIT FOR 2 ns;                                                         
+      clk <= '1', '0' AFTER 5 ns;
+  		WAIT FOR 10 ns;                                                         
 END PROCESS;
 
-reset <= '1','0' after 2.5 ns;
+reset <= '1','0' after 10.5 ns;
 
 
 stimulus_in: process 

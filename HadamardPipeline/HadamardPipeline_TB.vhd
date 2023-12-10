@@ -156,8 +156,8 @@ clockProcess: PROCESS
 -- (        )                                                 
 -- variable declarations                                      
 BEGIN                                                         
-      clock <= '1', '0' AFTER 1 ns;
-  		WAIT FOR 2 ns;                                                         
+      clock <= '1', '0' AFTER 5 ns;
+  		WAIT FOR 10 ns;                                                         
 END PROCESS;
 
 clear <= '1', '0' after 0.5 ns;
