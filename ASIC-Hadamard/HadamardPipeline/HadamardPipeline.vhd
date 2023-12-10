@@ -19,8 +19,8 @@ port
 	 clock, clear:			in  std_logic;
     w0, w1, w2, w3:     in  std_logic_vector(num - 1 downto 0);
 	 x0, x1, x2, x3:     out std_logic_vector(num     downto 0);
-	 y0, y1, y2, y3:     out std_logic_vector(num + 1 downto 0);
-    s0, s1, s2, s3:     out std_logic_vector(num     downto 0)
+--	 y0, y1, y2, y3:     out std_logic_vector(num + 1 downto 0);
+    s0, s1, s2, s3:     out std_logic_vector(num + 1 downto 0)
 );
 end HadamardPipeline;
 
@@ -116,30 +116,38 @@ architecture structure of HadamardPipeline is
     port map('0', b2, b3, '1', c3(num downto 0), carry(8));
 	 c3(num + 1) <= carry(8);
 	 
-	 y0 <= c0;
-	 y1 <= c1;
-	 y2 <= c2;
-	 y3 <= c3;
+--	 y0 <= c0;
+--	 y1 <= c1;
+--	 y2 <= c2;
+--	 y3 <= c3;
+
+-------------------Saidas-------------------------
+
+	 s0 <= c0;
+	 s1 <= c1;
+    s2 <= c2;
+    s3 <= c3;
+
 	 
-	 -----------------Deslocamento de bits a direita/ divisao por 2-------------------------
-	 
-	 SR0: ShiftRight
-	 port map(c0, d0);
-	 
-	 SR1: ShiftRight
-	 port map(c1, d1);
-	 
-	 SR2: ShiftRight
-	 port map(c2, d2);
-	 
-	 SR3: ShiftRight
-	 port map(c3, d3);
-	 
-	 -----------------Saidas-------------------------
-	 
-	 s0 <= d0(num downto 0);
-	 s1 <= d1(num downto 0);
-	 s2 <= d2(num downto 0);
-	 s3 <= d3(num downto 0);
+--	 -----------------Deslocamento de bits a direita/ divisao por 2-------------------------
+--	 
+--	 SR0: ShiftRight
+--	 port map(c0, d0);
+--	 
+--	 SR1: ShiftRight
+--	 port map(c1, d1);
+--	 
+--	 SR2: ShiftRight
+--	 port map(c2, d2);
+--	 
+--	 SR3: ShiftRight
+--	 port map(c3, d3);
+--	 
+--	 -----------------Saidas-------------------------
+--	 
+--	 s0 <= d0(num downto 0);
+--	 s1 <= d1(num downto 0);
+--	 s2 <= d2(num downto 0);
+--	 s3 <= d3(num downto 0);
     
 	end structure;
